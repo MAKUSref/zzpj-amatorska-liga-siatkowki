@@ -3,13 +3,7 @@ package pl.lodz.p.it.zzpj2023.utils.etag;
 import com.nimbusds.jose.*;
 import com.nimbusds.jose.crypto.MACSigner;
 import com.nimbusds.jose.crypto.MACVerifier;
-
-
-import io.jsonwebtoken.SignatureAlgorithm;
 import jakarta.annotation.PostConstruct;
-import jakarta.ejb.ApplicationException;
-import jakarta.ejb.Singleton;
-import jakarta.ejb.Stateless;
 import jakarta.enterprise.context.ApplicationScoped;
 import pl.lodz.p.it.zzpj2023.exceptions.BaseApplicationException;
 

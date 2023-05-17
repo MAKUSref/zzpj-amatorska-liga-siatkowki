@@ -3,6 +3,7 @@ package pl.lodz.p.it.zzpj2023.mok.entities;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.UuidGenerator;
 
 import java.util.UUID;
 
@@ -14,8 +15,8 @@ import java.util.UUID;
 public class Role extends AbstractEntity {
 
     @Id
-    @SequenceGenerator(name = "ROLE_SEQ_GEN", sequenceName = "role_id_seq")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ROLE_SEQ_GEN")
+    @GeneratedValue
+    @UuidGenerator
     @Column(name = "id")
     @Getter
     private UUID id;

@@ -1,0 +1,19 @@
+{
+  "login": {
+    "title": "Sign in",
+    "loginBtn": "Log in",
+    "placeholder": {
+      "login": "Login",
+      "password": "Password"
+    },
+    "form": {
+      "loginRequiered": "Login required!",
+      "passwordRequiered": "Password required!",
+      "passwordToShort": "Password must have at least 8 chars."
+    },
+    "exception": {
+      "badLogin": "Login does not exist",
+      "padPassword": "Bad password"
+    }
+  }
+}

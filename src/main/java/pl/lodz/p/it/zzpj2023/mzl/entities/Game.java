@@ -1,13 +1,13 @@
 package pl.lodz.p.it.zzpj2023.mzl.entities;
 
+import java.util.Date;
+import java.util.UUID;
+
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.UuidGenerator;
 import pl.lodz.p.it.zzpj2023.mok.entities.Referee;
-
-import java.util.Date;
-import java.util.UUID;
 
 @Entity
 @Table(name = "games", indexes = {

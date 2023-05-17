@@ -1,0 +1,14 @@
+@import '../../styles/index.scss';
+
+.intro-container {
+  .intro-container-blob-img {
+    z-index: -1;
+    transform: translate(0, -10%);
+  }
+  .intro-container-row {
+    
+    .intro-container-col {
+      height: 100vh;
+    }
+  }
+}

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="4.0" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
+
+<!--    <session-config>-->
+<!--        <session-timeout>-->
+<!--            30-->
+<!--        </session-timeout>-->
+<!--    </session-config>-->
+
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>All</web-resource-name>
+            <url-pattern>/</url-pattern>
+        </web-resource-collection>
+        <user-data-constraint>
+            <transport-guarantee>NONE</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+
+    <env-entry>
+        <env-entry-name>ETAG_SECRET</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>258AbqJCvhoWtVSI64m7Xpb6tpSJKpt6d7GRep82csg7jJzo9yu2whTOSQmkMjfpc2srXurE0G9LNn3NWbbT0yFgmWeW1y3VjB0sS-f0aUYOj4oYeGA-fK2G8Ju-sqDH16TRy1Es0pf1BhcbhFHARSnL9Y7QdA9us-KN_KTHqDc</env-entry-value>
+    </env-entry>
+</web-app>

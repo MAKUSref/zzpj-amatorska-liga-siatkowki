@@ -1,17 +1,13 @@
 package pl.lodz.p.it.zzpj2023.mok.facades;
 
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.Query;
 import jakarta.persistence.TypedQuery;
-import jakarta.security.enterprise.AuthenticationStatus;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import pl.lodz.p.it.zzpj2023.mok.entities.User;
-import pl.lodz.p.it.ssbd2023.ssbd04.security.JWTAuthMechanism;
 
 import java.lang.reflect.Field;
 import java.util.Arrays;

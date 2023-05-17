@@ -8,15 +8,21 @@ import java.util.*;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.UuidGenerator;
 
 @Entity
 @Table(name = "Users")
+@NamedQueries( {
+        @NamedQuery(name = "User.findAll", query = "SELECT d FROM User d"),
+        @NamedQuery(name = "User.findByLogin", query = "SELECT d FROM User d WHERE d.login = :login"),
+        @NamedQuery(name = "User.findByEmail", query = "SELECT d FROM User d WHERE d.email = :email")
+})
 public class User extends AbstractEntity {
 
     @Id
     @Column(name = "id")
-    @SequenceGenerator(name = "USER_SEQ_GEN", sequenceName = "user_id_seq")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "USER_SEQ_GEN")
+    @UuidGenerator
+    @GeneratedValue
     @Getter
     private UUID id;
 
@@ -64,7 +70,7 @@ public class User extends AbstractEntity {
     @Getter
     private Collection<Role> roles = new ArrayList<>();
 
-    public User(String login, String password, String name, String lastname, String email, boolean isActive, boolean isApproved, Date loginTimestamp, Locale locale, Collection<Role> roles) {
+    public User(String login, String password, String name, String lastname, String email, boolean isActive, boolean isApproved, Date loginTimestamp, Locale locale) {
         this.login = login;
         setPassword(password);
         this.name = name;
@@ -74,7 +80,6 @@ public class User extends AbstractEntity {
         this.isApproved = isApproved;
         this.loginTimestamp = loginTimestamp;
         this.locale = locale;
-        this.roles = roles;
     }
 
     public User() {

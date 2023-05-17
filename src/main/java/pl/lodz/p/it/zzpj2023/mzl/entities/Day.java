@@ -1,14 +1,14 @@
 package pl.lodz.p.it.zzpj2023.mzl.entities;
 
-import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
-import org.hibernate.annotations.UuidGenerator;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
+
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+import org.hibernate.annotations.UuidGenerator;
 
 @Entity
 @Table(name="days", indexes = {

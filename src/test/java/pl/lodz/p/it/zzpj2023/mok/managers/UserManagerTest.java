@@ -7,7 +7,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import pl.lodz.p.it.zzpj2023.mok.entities.User;
-import pl.lodz.p.it.ssbd2023.ssbd04.mok.facades.AccountFacade;
+import pl.lodz.p.it.zzpj2023.mok.facades.AccountFacade;
 
 import java.lang.reflect.Field;
 import java.util.Date;

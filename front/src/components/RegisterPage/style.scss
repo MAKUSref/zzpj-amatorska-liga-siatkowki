@@ -1,0 +1,11 @@
+@import "../../styles/index.scss";
+
+.register-form {
+  flex-basis: 100%;
+  background-color: transparent!important;
+
+  .register-form-input {
+    // max-width: 300px;
+    width: 100%;
+  }
+}

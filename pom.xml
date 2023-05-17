@@ -4,10 +4,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>pl.lodz.p.it.ssbd2023</groupId>
-    <artifactId>ssbd04</artifactId>
+    <groupId>pl.lodz.p.it</groupId>
+    <artifactId>zzpj2023</artifactId>
     <version>0.1.0</version>
-    <name>ssbd04</name>
+    <name>zzpj2023</name>
     <packaging>war</packaging>
 
     <properties>

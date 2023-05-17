@@ -1,0 +1,10 @@
+@import '../../styles/index.scss';
+
+.login-form {
+  flex-basis: 100%;
+  background-color: transparent!important;
+
+  .login-form-input {
+    width: 100%;
+  }
+}

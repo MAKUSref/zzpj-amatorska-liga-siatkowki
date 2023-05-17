@@ -3,8 +3,8 @@ package pl.lodz.p.it.zzpj2023.security;
 import io.jsonwebtoken.*;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import pl.lodz.p.it.zzpj2023.mok.entities.RoleType;
-import pl.lodz.p.it.ssbd2023.ssbd04.security.dtos.CreateTokenDTO;
+import pl.lodz.p.it.zzpj2023.roles.RoleTypeEnum;
+import pl.lodz.p.it.zzpj2023.security.dtos.CreateTokenDTO;
 
 import javax.crypto.spec.SecretKeySpec;
 import java.security.Key;
@@ -19,7 +19,7 @@ public class JWTManagerTest {
 
     private static JWTManager jwtManager;
     private static Key hmacKey;
-    private static List<RoleType> roles;
+    private static List<RoleTypeEnum> roles;
     private static final UUID clientId = UUID.randomUUID();
     private static CreateTokenDTO testToken;
 
@@ -30,8 +30,8 @@ public class JWTManagerTest {
         jwtManager = new JWTManager();
         testToken = new CreateTokenDTO();
         testToken.setClientId(clientId);
-        roles = new ArrayList<RoleType>();
-        roles.add(RoleType.ADMIN);
+        roles = new ArrayList<>();
+        roles.add(RoleTypeEnum.ROLE_ADMIN);
         testToken.setRoles(roles);
     }
 

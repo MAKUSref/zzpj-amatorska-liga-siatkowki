@@ -6,7 +6,7 @@ import jakarta.persistence.Persistence;
 
 public class TestJDBC {
     public static void main(String[] args) {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("ssbd_pu");
-        EntityManager entityManager = emf.createEntityManager();
+//        EntityManagerFactory emf = Persistence.createEntityManagerFactory("ssbd_pu");
+//        EntityManager entityManager = emf.createEntityManager();
     }
 }

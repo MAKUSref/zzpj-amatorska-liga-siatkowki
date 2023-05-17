@@ -35,6 +35,16 @@ public UserDTO() {
         this.locale = locale;
     }
 
+    public UserDTO(UUID id, long version, String login, String name, String lastname, String email, Date loginTimestamp, String locale) {
+        super(id, version);
+        this.login = login;
+        this.name = name;
+        this.lastname = lastname;
+        this.email = email;
+        this.loginTimestamp = loginTimestamp;
+        this.locale = locale;
+    }
+
     @Override
     public String getPayload() {
         return login + getVersion();

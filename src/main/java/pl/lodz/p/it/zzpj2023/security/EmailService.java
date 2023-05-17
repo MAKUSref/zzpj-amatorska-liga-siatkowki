@@ -34,7 +34,7 @@ public class EmailService {
         //provide Mailtrap's username
         final String username = "nesteruk060@gmail.com";
         //provide Mailtrap's password
-        final String password = "xsmtpsib-b89ceb30d5481e70267a706731e27ba4a03030d9d5b7c4c651bfb30d6e8efa76-6wE5AMYv3X7VZhFp";
+        final String password = ""; // TODO setting password as env variable
         //provide Mailtrap's host address
         String host = "smtp-relay.sendinblue.com";
         //configure Mailtrap's SMTP server details

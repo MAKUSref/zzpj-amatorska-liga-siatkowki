@@ -6,7 +6,6 @@ import io.jsonwebtoken.JwtException;
 import jakarta.security.enterprise.AuthenticationException;
 import jakarta.security.enterprise.AuthenticationStatus;
 import jakarta.security.enterprise.authentication.mechanism.http.HttpMessageContext;
-import jakarta.security.enterprise.authentication.mechanism.http.HttpMessageContextWrapper;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -15,12 +14,8 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
-import pl.lodz.p.it.ssbd2023.ssbd04.security.JWTAuthMechanism;
-import pl.lodz.p.it.ssbd2023.ssbd04.security.JWTManager;
 
 import java.lang.reflect.Field;
-import java.util.Optional;
-import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;

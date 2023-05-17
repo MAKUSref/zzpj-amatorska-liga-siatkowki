@@ -1,0 +1,31 @@
+version: "3.8"
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - '5434:5432'
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data
+    networks:
+      - app-network
+
+#  payara:
+#    image: ivonet/payara
+#    volumes:
+#      - ./tmp/artifact:/opt/payara
+#    ports:
+#      - 4849:4848
+#      - 8080:8080
+#    environment:
+#      - ADMIN_PASSWORD=s3cr3t
+#    networks:
+#      - app-network
+
+networks:
+  app-network:
+    driver: bridge

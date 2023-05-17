@@ -5,7 +5,7 @@ import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import jakarta.enterprise.context.ApplicationScoped;
-import pl.lodz.p.it.ssbd2023.ssbd04.security.dtos.CreateTokenDTO;
+import pl.lodz.p.it.zzpj2023.security.dtos.CreateTokenDTO;
 
 import javax.crypto.spec.SecretKeySpec;
 import java.security.Key;

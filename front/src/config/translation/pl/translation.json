@@ -1,0 +1,19 @@
+{
+  "login": {
+    "title": "Zaloguj się",
+    "loginBtn": "Zaloguj się",
+    "placeholder": {
+      "login": "Login",
+      "password": "Hasło"
+    },
+    "form": {
+      "loginRequiered": "Login jest wymagany!",
+      "passwordRequiered": "Hasło jest wymagane!",
+      "passwordToShort": "Hasło za krótkie (min. 8 znaków)."
+    },
+    "exception": {
+      "badLogin": "Podany login nie istnieje",
+      "padPassword": "Złe hasło"
+    }
+  }
+}

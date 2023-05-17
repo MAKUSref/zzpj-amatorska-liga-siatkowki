@@ -1,34 +1,9 @@
 package pl.lodz.p.it.zzpj2023.mok;
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
-import jakarta.transaction.UserTransaction;
-import jakarta.ws.rs.core.Response;
-import org.jboss.arquillian.container.test.api.Deployment;
-import org.jboss.arquillian.junit.Arquillian;
-import org.jboss.shrinkwrap.api.Archive;
-import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.jboss.shrinkwrap.api.spec.WebArchive;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
-
-import jakarta.inject.Inject;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
-import org.mockito.junit.MockitoJUnitRunner;
-import pl.lodz.p.it.ssbd2023.ssbd04.mok.endpoints.AccountEndpoint;
-import pl.lodz.p.it.ssbd2023.ssbd04.mok.facades.AccountFacade;
-import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.when;
 
 //@RunWith(Arquillian.class)
 public class CreateUserTest {
