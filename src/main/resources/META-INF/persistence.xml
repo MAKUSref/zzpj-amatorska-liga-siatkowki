@@ -23,26 +23,26 @@
     </persistence-unit>
     <persistence-unit name="siatka_admin" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <class>pl.lodz.p.it.ssbd2023.ssbd04.mok.entities.Role</class>
-        <class>pl.lodz.p.it.ssbd2023.ssbd04.mok.entities.User</class>
-        <class>pl.lodz.p.it.ssbd2023.ssbd04.mok.entities.Admin</class>
-        <class>pl.lodz.p.it.ssbd2023.ssbd04.mok.entities.Manager</class>
-        <class>pl.lodz.p.it.ssbd2023.ssbd04.mok.entities.Referee</class>
-        <class>pl.lodz.p.it.ssbd2023.ssbd04.mok.entities.Coach</class>
-        <class>pl.lodz.p.it.ssbd2023.ssbd04.mok.entities.Captain</class>
-        <class>pl.lodz.p.it.ssbd2023.ssbd04.mzl.entities.Day</class>
-        <class>pl.lodz.p.it.ssbd2023.ssbd04.mzl.entities.Game</class>
-        <class>pl.lodz.p.it.ssbd2023.ssbd04.mzl.entities.GameSquad</class>
-        <class>pl.lodz.p.it.ssbd2023.ssbd04.mzl.entities.League</class>
-        <class>pl.lodz.p.it.ssbd2023.ssbd04.mzl.entities.OverallTeamScore</class>
-        <class>pl.lodz.p.it.ssbd2023.ssbd04.mzl.entities.Player</class>
-        <class>pl.lodz.p.it.ssbd2023.ssbd04.mzl.entities.Round</class>
-        <class>pl.lodz.p.it.ssbd2023.ssbd04.mzl.entities.Score</class>
-        <class>pl.lodz.p.it.ssbd2023.ssbd04.mzl.entities.Scoreboard</class>
-        <class>pl.lodz.p.it.ssbd2023.ssbd04.mzl.entities.Set</class>
-        <class>pl.lodz.p.it.ssbd2023.ssbd04.mzl.entities.Team</class>
-        <class>pl.lodz.p.it.ssbd2023.ssbd04.mzl.entities.Timetable</class>
-        <class>pl.lodz.p.it.ssbd2023.ssbd04.mzl.entities.Venue</class>
+        <class>pl.lodz.p.it.zzpj2023.mok.entities.Role</class>
+        <class>pl.lodz.p.it.zzpj2023.mok.entities.User</class>
+        <class>pl.lodz.p.it.zzpj2023.mok.entities.Admin</class>
+        <class>pl.lodz.p.it.zzpj2023.mok.entities.Manager</class>
+        <class>pl.lodz.p.it.zzpj2023.mok.entities.Referee</class>
+        <class>pl.lodz.p.it.zzpj2023.mok.entities.Coach</class>
+        <class>pl.lodz.p.it.zzpj2023.mok.entities.Captain</class>
+        <class>pl.lodz.p.it.zzpj2023.mzl.entities.Day</class>
+        <class>pl.lodz.p.it.zzpj2023.mzl.entities.Game</class>
+        <class>pl.lodz.p.it.zzpj2023.mzl.entities.GameSquad</class>
+        <class>pl.lodz.p.it.zzpj2023.mzl.entities.League</class>
+        <class>pl.lodz.p.it.zzpj2023.mzl.entities.OverallTeamScore</class>
+        <class>pl.lodz.p.it.zzpj2023.mzl.entities.Player</class>
+        <class>pl.lodz.p.it.zzpj2023.mzl.entities.Round</class>
+        <class>pl.lodz.p.it.zzpj2023.mzl.entities.Score</class>
+        <class>pl.lodz.p.it.zzpj2023.mzl.entities.Scoreboard</class>
+        <class>pl.lodz.p.it.zzpj2023.mzl.entities.Set</class>
+        <class>pl.lodz.p.it.zzpj2023.mzl.entities.Team</class>
+        <class>pl.lodz.p.it.zzpj2023.mzl.entities.Timetable</class>
+        <class>pl.lodz.p.it.zzpj2023.mzl.entities.Venue</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <shared-cache-mode>NONE</shared-cache-mode>
         <validation-mode>CALLBACK</validation-mode>
@@ -61,13 +61,13 @@
 
     <persistence-unit name="siatka_mok" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <class>pl.lodz.p.it.ssbd2023.ssbd04.mok.entities.Role</class>
-        <class>pl.lodz.p.it.ssbd2023.ssbd04.mok.entities.User</class>
-        <class>pl.lodz.p.it.ssbd2023.ssbd04.mok.entities.Admin</class>
-        <class>pl.lodz.p.it.ssbd2023.ssbd04.mok.entities.Manager</class>
-        <class>pl.lodz.p.it.ssbd2023.ssbd04.mok.entities.Referee</class>
-        <class>pl.lodz.p.it.ssbd2023.ssbd04.mok.entities.Coach</class>
-        <class>pl.lodz.p.it.ssbd2023.ssbd04.mok.entities.Captain</class>
+        <class>pl.lodz.p.it.zzpj2023.mok.entities.Role</class>
+        <class>pl.lodz.p.it.zzpj2023.mok.entities.User</class>
+        <class>pl.lodz.p.it.zzpj2023.mok.entities.Admin</class>
+        <class>pl.lodz.p.it.zzpj2023.mok.entities.Manager</class>
+        <class>pl.lodz.p.it.zzpj2023.mok.entities.Referee</class>
+        <class>pl.lodz.p.it.zzpj2023.mok.entities.Coach</class>
+        <class>pl.lodz.p.it.zzpj2023.mok.entities.Captain</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <shared-cache-mode>NONE</shared-cache-mode>
         <validation-mode>CALLBACK</validation-mode>
@@ -84,13 +84,13 @@
     </persistence-unit>
     <persistence-unit name="siatka_mok_read" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <class>pl.lodz.p.it.ssbd2023.ssbd04.mok.entities.Role</class>
-        <class>pl.lodz.p.it.ssbd2023.ssbd04.mok.entities.User</class>
-        <class>pl.lodz.p.it.ssbd2023.ssbd04.mok.entities.Admin</class>
-        <class>pl.lodz.p.it.ssbd2023.ssbd04.mok.entities.Manager</class>
-        <class>pl.lodz.p.it.ssbd2023.ssbd04.mok.entities.Referee</class>
-        <class>pl.lodz.p.it.ssbd2023.ssbd04.mok.entities.Coach</class>
-        <class>pl.lodz.p.it.ssbd2023.ssbd04.mok.entities.Captain</class>
+        <class>pl.lodz.p.it.zzpj2023.mok.entities.Role</class>
+        <class>pl.lodz.p.it.zzpj2023.mok.entities.User</class>
+        <class>pl.lodz.p.it.zzpj2023.mok.entities.Admin</class>
+        <class>pl.lodz.p.it.zzpj2023.mok.entities.Manager</class>
+        <class>pl.lodz.p.it.zzpj2023.mok.entities.Referee</class>
+        <class>pl.lodz.p.it.zzpj2023.mok.entities.Coach</class>
+        <class>pl.lodz.p.it.zzpj2023.mok.entities.Captain</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <shared-cache-mode>NONE</shared-cache-mode>
         <validation-mode>CALLBACK</validation-mode>
@@ -107,19 +107,19 @@
     </persistence-unit>
     <persistence-unit name="siatka_mzl_read" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <class>pl.lodz.p.it.ssbd2023.ssbd04.mzl.entities.Day</class>
-        <class>pl.lodz.p.it.ssbd2023.ssbd04.mzl.entities.Game</class>
-        <class>pl.lodz.p.it.ssbd2023.ssbd04.mzl.entities.GameSquad</class>
-        <class>pl.lodz.p.it.ssbd2023.ssbd04.mzl.entities.League</class>
-        <class>pl.lodz.p.it.ssbd2023.ssbd04.mzl.entities.OverallTeamScore</class>
-        <class>pl.lodz.p.it.ssbd2023.ssbd04.mzl.entities.Player</class>
-        <class>pl.lodz.p.it.ssbd2023.ssbd04.mzl.entities.Round</class>
-        <class>pl.lodz.p.it.ssbd2023.ssbd04.mzl.entities.Score</class>
-        <class>pl.lodz.p.it.ssbd2023.ssbd04.mzl.entities.Scoreboard</class>
-        <class>pl.lodz.p.it.ssbd2023.ssbd04.mzl.entities.Set</class>
-        <class>pl.lodz.p.it.ssbd2023.ssbd04.mzl.entities.Team</class>
-        <class>pl.lodz.p.it.ssbd2023.ssbd04.mzl.entities.Timetable</class>
-        <class>pl.lodz.p.it.ssbd2023.ssbd04.mzl.entities.Venue</class>
+        <class>pl.lodz.p.it.zzpj2023.mzl.entities.Day</class>
+        <class>pl.lodz.p.it.zzpj2023.mzl.entities.Game</class>
+        <class>pl.lodz.p.it.zzpj2023.mzl.entities.GameSquad</class>
+        <class>pl.lodz.p.it.zzpj2023.mzl.entities.League</class>
+        <class>pl.lodz.p.it.zzpj2023.mzl.entities.OverallTeamScore</class>
+        <class>pl.lodz.p.it.zzpj2023.mzl.entities.Player</class>
+        <class>pl.lodz.p.it.zzpj2023.mzl.entities.Round</class>
+        <class>pl.lodz.p.it.zzpj2023.mzl.entities.Score</class>
+        <class>pl.lodz.p.it.zzpj2023.mzl.entities.Scoreboard</class>
+        <class>pl.lodz.p.it.zzpj2023.mzl.entities.Set</class>
+        <class>pl.lodz.p.it.zzpj2023.mzl.entities.Team</class>
+        <class>pl.lodz.p.it.zzpj2023.mzl.entities.Timetable</class>
+        <class>pl.lodz.p.it.zzpj2023.mzl.entities.Venue</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <shared-cache-mode>NONE</shared-cache-mode>
         <validation-mode>CALLBACK</validation-mode>
@@ -136,19 +136,19 @@
     </persistence-unit>
     <persistence-unit name="siatka_mzl" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <class>pl.lodz.p.it.ssbd2023.ssbd04.mzl.entities.Day</class>
-        <class>pl.lodz.p.it.ssbd2023.ssbd04.mzl.entities.Game</class>
-        <class>pl.lodz.p.it.ssbd2023.ssbd04.mzl.entities.GameSquad</class>
-        <class>pl.lodz.p.it.ssbd2023.ssbd04.mzl.entities.League</class>
-        <class>pl.lodz.p.it.ssbd2023.ssbd04.mzl.entities.OverallTeamScore</class>
-        <class>pl.lodz.p.it.ssbd2023.ssbd04.mzl.entities.Player</class>
-        <class>pl.lodz.p.it.ssbd2023.ssbd04.mzl.entities.Round</class>
-        <class>pl.lodz.p.it.ssbd2023.ssbd04.mzl.entities.Score</class>
-        <class>pl.lodz.p.it.ssbd2023.ssbd04.mzl.entities.Scoreboard</class>
-        <class>pl.lodz.p.it.ssbd2023.ssbd04.mzl.entities.Set</class>
-        <class>pl.lodz.p.it.ssbd2023.ssbd04.mzl.entities.Team</class>
-        <class>pl.lodz.p.it.ssbd2023.ssbd04.mzl.entities.Timetable</class>
-        <class>pl.lodz.p.it.ssbd2023.ssbd04.mzl.entities.Venue</class>
+        <class>pl.lodz.p.it.zzpj2023.mzl.entities.Day</class>
+        <class>pl.lodz.p.it.zzpj2023.mzl.entities.Game</class>
+        <class>pl.lodz.p.it.zzpj2023.mzl.entities.GameSquad</class>
+        <class>pl.lodz.p.it.zzpj2023.mzl.entities.League</class>
+        <class>pl.lodz.p.it.zzpj2023.mzl.entities.OverallTeamScore</class>
+        <class>pl.lodz.p.it.zzpj2023.mzl.entities.Player</class>
+        <class>pl.lodz.p.it.zzpj2023.mzl.entities.Round</class>
+        <class>pl.lodz.p.it.zzpj2023.mzl.entities.Score</class>
+        <class>pl.lodz.p.it.zzpj2023.mzl.entities.Scoreboard</class>
+        <class>pl.lodz.p.it.zzpj2023.mzl.entities.Set</class>
+        <class>pl.lodz.p.it.zzpj2023.mzl.entities.Team</class>
+        <class>pl.lodz.p.it.zzpj2023.mzl.entities.Timetable</class>
+        <class>pl.lodz.p.it.zzpj2023.mzl.entities.Venue</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <shared-cache-mode>NONE</shared-cache-mode>
         <validation-mode>CALLBACK</validation-mode>
