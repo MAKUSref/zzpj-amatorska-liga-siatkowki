@@ -18,19 +18,9 @@
 
     <developers>
         <developer>
-            <name>Yauheni Nestsiaruk</name>
-            <email>230113@edu.p.lodz.pl</email>
-            <id>230113</id>
-        </developer>
-        <developer>
             <name>Tomasz Makowski</name>
             <email>236593@edu.p.lodz.pl</email>
             <id>236593</id>
-        </developer>
-        <developer>
-            <name>Jakub Wardyn</name>
-            <email>236683@edu.p.lodz.pl</email>
-            <id>236683</id>
         </developer>
         <developer>
             <name>Bartosz Palewicz</name>
