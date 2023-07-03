@@ -29,7 +29,7 @@ public class Role extends AbstractEntity {
     @ManyToOne(optional = false, cascade = CascadeType.PERSIST)
     @JoinColumn(name = "user_id", referencedColumnName = "id", updatable = false)
     @Getter @Setter
-    private User user;
+    private Account account;
 
     public Role() {
     }

@@ -6,7 +6,7 @@ import jakarta.inject.Inject;
 import pl.lodz.p.it.zzpj2023.exceptions.TokenExpiredException;
 import pl.lodz.p.it.zzpj2023.exceptions.UserNotApprovedException;
 import pl.lodz.p.it.zzpj2023.mok.entities.PasswordResetToken;
-import pl.lodz.p.it.zzpj2023.mok.entities.User;
+import pl.lodz.p.it.zzpj2023.mok.entities.Account;
 import pl.lodz.p.it.zzpj2023.mok.facades.TokenFacade;
 
 import java.time.LocalDateTime;
@@ -24,24 +24,24 @@ public class TokenManager {
     }
 
     @PermitAll
-    public User findUserByToken(String token) {
+    public Account findUserByToken(String token) {
         PasswordResetToken resetToken = tokenFacade.findByToken(token);
         checkToken(resetToken);
         tokenFacade.remove(resetToken);
-        return resetToken.getUser();
+        return resetToken.getAccount();
     }
 
     @PermitAll
-    private void validateUser(User user) {
-        if (!user.isActive() || !user.isApproved() || user.isBlocked()) {
+    private void validateUser(Account account) {
+        if (!account.isActive() || !account.isApproved() || account.isBlocked()) {
             throw new UserNotApprovedException();
         }
     }
 
     @PermitAll
-    public String generateResetPasswordToken(User user) {
-        validateUser(user);
-        PasswordResetToken token = new PasswordResetToken(UUID.randomUUID().toString(), user);
+    public String generateResetPasswordToken(Account account) {
+        validateUser(account);
+        PasswordResetToken token = new PasswordResetToken(UUID.randomUUID().toString(), account);
         tokenFacade.create(token);
         return token.getToken();
     }

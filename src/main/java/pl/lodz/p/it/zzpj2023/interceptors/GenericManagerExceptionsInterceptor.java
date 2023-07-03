@@ -1,4 +1,4 @@
-package pl.lodz.p.it.zzpj2023.exceptions.interceptors;
+package pl.lodz.p.it.zzpj2023.interceptors;
 
 import jakarta.ejb.AccessLocalException;
 import jakarta.ejb.EJBAccessException;

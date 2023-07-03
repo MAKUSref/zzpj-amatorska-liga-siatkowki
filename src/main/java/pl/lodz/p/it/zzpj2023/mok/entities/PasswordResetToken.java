@@ -31,15 +31,15 @@ public class PasswordResetToken extends AbstractEntity {
 
     private String token;
 
-    @OneToOne(targetEntity = User.class, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = Account.class, fetch = FetchType.EAGER)
     @JoinColumn(nullable = false, name = "user_id")
-    private User user;
+    private Account account;
 
     private LocalDateTime expiryDate;
 
-    public PasswordResetToken(String token, User user) {
+    public PasswordResetToken(String token, Account account) {
         this.token = token;
-        this.user = user;
+        this.account = account;
         this.expiryDate = calculateExpiryDate();
     }
 

@@ -10,15 +10,14 @@ import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import pl.lodz.p.it.zzpj2023.mok.dtos.*;
+import pl.lodz.p.it.zzpj2023.mok.entities.Account;
 import pl.lodz.p.it.zzpj2023.mok.entities.Role;
-import pl.lodz.p.it.zzpj2023.mok.entities.User;
-import pl.lodz.p.it.zzpj2023.mok.managers.UserManager;
+import pl.lodz.p.it.zzpj2023.mok.managers.AccountManager;
 import pl.lodz.p.it.zzpj2023.mok.mappers.RoleDTOMapper;
 import pl.lodz.p.it.zzpj2023.mok.mappers.UserDTOMapper;
 import pl.lodz.p.it.zzpj2023.roles.Roles;
 import pl.lodz.p.it.zzpj2023.utils.etag.Etag;
 import pl.lodz.p.it.zzpj2023.utils.etag.EtagFilter;
-import pl.lodz.p.it.zzpj2023.mok.dtos.*;
 
 import java.util.List;
 import java.util.UUID;
@@ -28,7 +27,7 @@ import java.util.UUID;
 public class AccountEndpoint {
 
     @Inject
-    private UserManager userManager;
+    private AccountManager accountManager;
 
     @Inject
     private Etag etag;
@@ -39,7 +38,7 @@ public class AccountEndpoint {
     @Consumes(MediaType.APPLICATION_JSON)
     @RolesAllowed(Roles.MANAGER)
     public Response addRoleManager(@NotNull @Valid AddRoleManagerDTO addRoleManagerDTO) {
-        userManager.addAccessLevelManager(addRoleManagerDTO.getUsername(), addRoleManagerDTO.getTeam());
+        accountManager.addAccessLevelManager(addRoleManagerDTO.getUsername(), addRoleManagerDTO.getTeam());
         return Response.ok().build();
     }
 
@@ -48,12 +47,12 @@ public class AccountEndpoint {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces("application/json")
     public Response registerUser(@NotNull @Valid RegisterUserDTO registerUserDTO) {
-        User newUser = UserDTOMapper.DTOToUser(registerUserDTO.getUserData(), registerUserDTO.getPassword());
+        Account newAccount = UserDTOMapper.DTOToUser(registerUserDTO.getUserData(), registerUserDTO.getPassword());
         Role newRoleData = RoleDTOMapper.DTOToRole(registerUserDTO.getRole());
-        newUser.setActive(false);
-        newUser.setBlocked(false);
-        newUser.setApproved(false);
-        User result = userManager.createManager(newUser, newRoleData);
+        newAccount.setActive(false);
+        newAccount.setBlocked(false);
+        newAccount.setApproved(false);
+        Account result = accountManager.createManager(newAccount, newRoleData);
         return Response.status(201).entity(UserDTOMapper.UserToDTO(result)).build();
     }
 
@@ -62,9 +61,9 @@ public class AccountEndpoint {
     @Consumes(MediaType.APPLICATION_JSON)
     @RolesAllowed(Roles.ADMIN)
     public Response createAccountAsAdmin(@NotNull @Valid UserByAdminDTO userByAdminDTO) {
-        User createdUser = userManager.createUserAsAdmin(UserDTOMapper.DTOToUser(userByAdminDTO.getAccountDto(), userByAdminDTO.getPassword()),
+        Account createdAccount = accountManager.createUserAsAdmin(UserDTOMapper.DTOToUser(userByAdminDTO.getAccountDto(), userByAdminDTO.getPassword()),
                 RoleDTOMapper.DTOToRole(userByAdminDTO.getRoleDTO()));
-        return Response.ok(UserDTOMapper.UserToDTO(createdUser)).build();
+        return Response.ok(UserDTOMapper.UserToDTO(createdAccount)).build();
     }
 
     @PATCH
@@ -72,8 +71,8 @@ public class AccountEndpoint {
     @Consumes(MediaType.APPLICATION_JSON)
     @EtagFilter
     @RolesAllowed({Roles.MANAGER,Roles.COACH,Roles.CAPITAN,Roles.REFEREE,Roles.ADMIN})
-    public Response editUser(@NotNull @Valid EditUserDTO editUserDTO) {
-        userManager.editSelfUser(editUserDTO);
+    public Response editUser(@NotNull @Valid EditAccountDTO editAccountDTO) {
+        accountManager.editSelfUser(editAccountDTO);
 
         return Response.ok().build();
     }
@@ -83,8 +82,8 @@ public class AccountEndpoint {
     @Consumes(MediaType.APPLICATION_JSON)
     @EtagFilter
     @RolesAllowed({Roles.ADMIN})
-    public Response editUserAsAdmin(@PathParam("login") String login, @NotNull @Valid EditUserDTO editUserDTO) {
-        userManager.editUserAsAdmin(editUserDTO, login);
+    public Response editUserAsAdmin(@PathParam("login") String login, @NotNull @Valid EditAccountDTO editAccountDTO) {
+        accountManager.editUserAsAdmin(editAccountDTO, login);
 
         return Response.ok().build();
     }
@@ -94,7 +93,7 @@ public class AccountEndpoint {
     @Produces(MediaType.APPLICATION_JSON)
     @RolesAllowed(Roles.ADMIN)
     public UserDTO getAccountByUUID(@PathParam("id") UUID id){
-        return UserDTOMapper.UserToDTO(userManager.getUserByUUID(id));
+        return UserDTOMapper.UserToDTO(accountManager.getUserByUUID(id));
     }
 
     @PATCH
@@ -102,7 +101,7 @@ public class AccountEndpoint {
     @Produces({MediaType.APPLICATION_JSON})
     @RolesAllowed(Roles.ADMIN)
     public Response blockAccount(@PathParam("id")UUID id){
-        userManager.blockAccount(id);
+        accountManager.blockAccount(id);
         return Response.status(201).build();
     }
 
@@ -111,7 +110,7 @@ public class AccountEndpoint {
     @Produces({MediaType.APPLICATION_JSON})
     @RolesAllowed(Roles.ADMIN)
     public Response unblockAccount(@PathParam("id")UUID id){
-        userManager.unblockAccount(id);
+        accountManager.unblockAccount(id);
         return Response.status(201).build();
     }
 
@@ -125,56 +124,56 @@ public class AccountEndpoint {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<UserDTO> getAllUsers() {
-        return UserDTOMapper.UsersToDTOList(userManager.getAllUsers());
+        return UserDTOMapper.UsersToDTOList(accountManager.getAllUsers());
     }
 
     @GET
     @Path("/admin")
     @Produces(MediaType.APPLICATION_JSON)
     public List<UserDTO> getAllAdmins() {
-        return UserDTOMapper.UsersToDTOList(userManager.getAllAdmins());
+        return UserDTOMapper.UsersToDTOList(accountManager.getAllAdmins());
     }
 
     @GET
     @Path("/referee")
     @Produces(MediaType.APPLICATION_JSON)
     public List<UserDTO> getAllReferees() {
-        return UserDTOMapper.UsersToDTOList(userManager.getAllReferees());
+        return UserDTOMapper.UsersToDTOList(accountManager.getAllReferees());
     }
 
     @GET
     @Path("/coach")
     @Produces(MediaType.APPLICATION_JSON)
     public List<UserDTO> getAllCoaches() {
-        return UserDTOMapper.UsersToDTOList(userManager.getAllCoaches());
+        return UserDTOMapper.UsersToDTOList(accountManager.getAllCoaches());
     }
 
     @GET
     @Path("/captain")
     @Produces(MediaType.APPLICATION_JSON)
     public List<UserDTO> getAllCaptains() {
-        return UserDTOMapper.UsersToDTOList(userManager.getAllCaptains());
+        return UserDTOMapper.UsersToDTOList(accountManager.getAllCaptains());
     }
 
     @GET
     @Path("/manager")
     @Produces(MediaType.APPLICATION_JSON)
     public List<UserDTO> getAllManagers() {
-        return UserDTOMapper.UsersToDTOList(userManager.getAllManagers());
+        return UserDTOMapper.UsersToDTOList(accountManager.getAllManagers());
     }
 
     @GET
     @Path("/getUserByLogin/{login}")
     @Produces(MediaType.APPLICATION_JSON)
     public UserDTO getUserByLogin(@PathParam("login") String login) {
-        return UserDTOMapper.UserToDTO(userManager.getUserByLogin(login));
+        return UserDTOMapper.UserToDTO(accountManager.getUserByLogin(login));
     }
 
     @POST
     @Path("/resetPassword")
     @PermitAll
     public Response resetPassword(@QueryParam("token") String token, @NotNull String newPassword) {
-        userManager.resetPassword(token, newPassword);
+        accountManager.resetPassword(token, newPassword);
         return Response.status(200).build();
     }
 
@@ -182,7 +181,7 @@ public class AccountEndpoint {
     @Path("/requestResetPassword")
     @PermitAll
     public Response requestResetPassword(@QueryParam("email") String userEmail) {
-        userManager.sendResetPasswordEmail(userEmail);
+        accountManager.sendResetPasswordEmail(userEmail);
         return Response.status(200).build();
     }
 }

@@ -12,9 +12,9 @@
             <web-resource-name>All</web-resource-name>
             <url-pattern>/</url-pattern>
         </web-resource-collection>
-        <user-data-constraint>
+        <account-data-constraint>
             <transport-guarantee>NONE</transport-guarantee>
-        </user-data-constraint>
+        </account-data-constraint>
     </security-constraint>
 
     <env-entry>

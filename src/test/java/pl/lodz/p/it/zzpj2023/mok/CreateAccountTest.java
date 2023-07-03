@@ -6,7 +6,7 @@ import org.junit.Test;
 import static org.mockito.ArgumentMatchers.any;
 
 //@RunWith(Arquillian.class)
-public class CreateUserTest {
+public class CreateAccountTest {
 //
 //    @Test
 //    public void emptyTest(){

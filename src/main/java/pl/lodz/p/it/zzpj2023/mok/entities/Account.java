@@ -11,13 +11,14 @@ import lombok.Setter;
 import org.hibernate.annotations.UuidGenerator;
 
 @Entity
-@Table(name = "Users")
+@Table(name = "accounts")
 @NamedQueries( {
-        @NamedQuery(name = "User.findAll", query = "SELECT d FROM User d"),
-        @NamedQuery(name = "User.findByLogin", query = "SELECT d FROM User d WHERE d.login = :login"),
-        @NamedQuery(name = "User.findByEmail", query = "SELECT d FROM User d WHERE d.email = :email")
+        @NamedQuery(name = "Account.findAll", query = "SELECT d FROM Account d"),
+        @NamedQuery(name = "Account.findByLogin", query = "SELECT d FROM Account d WHERE d.login = :login"),
+        @NamedQuery(name = "Account.findByEmail", query = "SELECT d FROM Account d WHERE d.email = :email"),
+        @NamedQuery(name = "Account.findByRoleId", query = "SELECT a FROM Account a JOIN a.roles r WHERE r.id = :roleId"),
 })
-public class User extends AbstractEntity {
+public class Account extends AbstractEntity {
 
     @Id
     @Column(name = "id")
@@ -70,7 +71,7 @@ public class User extends AbstractEntity {
     @Getter
     private Collection<Role> roles = new ArrayList<>();
 
-    public User(String login, String password, String name, String lastname, String email, boolean isActive, boolean isApproved, Date loginTimestamp, Locale locale) {
+    public Account(String login, String password, String name, String lastname, String email, boolean isActive, boolean isApproved, Date loginTimestamp, Locale locale) {
         this.login = login;
         setPassword(password);
         this.name = name;
@@ -82,7 +83,7 @@ public class User extends AbstractEntity {
         this.locale = locale;
     }
 
-    public User() {
+    public Account() {
 
     }
 

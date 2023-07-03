@@ -10,7 +10,7 @@
 
         <class>pl.lodz.p.it.zzpj2023.mok.entities.PasswordResetToken</class>
         <class>pl.lodz.p.it.zzpj2023.mok.entities.Role</class>
-        <class>pl.lodz.p.it.zzpj2023.mok.entities.User</class>
+        <class>pl.lodz.p.it.zzpj2023.mok.entities.Account</class>
         <class>pl.lodz.p.it.zzpj2023.mok.entities.Admin</class>
         <class>pl.lodz.p.it.zzpj2023.mok.entities.Manager</class>
         <class>pl.lodz.p.it.zzpj2023.mok.entities.Referee</class>
@@ -35,7 +35,7 @@
         <properties>
 <!--            <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"/>-->
 <!--            <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5434/siatka"/>-->
-<!--            <property name="jakarta.persistence.jdbc.user" value="siatka_admin"/>-->
+<!--            <property name="jakarta.persistence.jdbc.account" value="siatka_admin"/>-->
 <!--            <property name="jakarta.persistence.jdbc.password" value="siatka_admin"/>-->
             <property name="jakarta.persistence.schema-generation.database.action" value="drop-and-create"/>
 <!--            <property name="hibernate.hbm2ddl.auto" value="update"/>-->
@@ -57,7 +57,7 @@
         <jta-data-source>java:app/jdbc/siatka_mok</jta-data-source>
         <class>pl.lodz.p.it.zzpj2023.mok.entities.PasswordResetToken</class>
         <class>pl.lodz.p.it.zzpj2023.mok.entities.Role</class>
-        <class>pl.lodz.p.it.zzpj2023.mok.entities.User</class>
+        <class>pl.lodz.p.it.zzpj2023.mok.entities.Account</class>
         <class>pl.lodz.p.it.zzpj2023.mok.entities.Admin</class>
         <class>pl.lodz.p.it.zzpj2023.mok.entities.Manager</class>
         <class>pl.lodz.p.it.zzpj2023.mok.entities.Referee</class>
@@ -97,7 +97,7 @@
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <jta-data-source>java:app/jdbc/siatka_mzl</jta-data-source>
         <class>pl.lodz.p.it.zzpj2023.mok.entities.Role</class>
-        <class>pl.lodz.p.it.zzpj2023.mok.entities.User</class>
+        <class>pl.lodz.p.it.zzpj2023.mok.entities.Account</class>
         <class>pl.lodz.p.it.zzpj2023.mok.entities.Admin</class>
         <class>pl.lodz.p.it.zzpj2023.mok.entities.Manager</class>
         <class>pl.lodz.p.it.zzpj2023.mok.entities.Referee</class>

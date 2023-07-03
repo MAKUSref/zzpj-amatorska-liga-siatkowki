@@ -9,21 +9,21 @@ import jakarta.interceptor.Interceptors;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
-import pl.lodz.p.it.zzpj2023.exceptions.interceptors.AccountFacadeExceptionsInterceptor;
-import pl.lodz.p.it.zzpj2023.exceptions.interceptors.GenericFacadeExceptionsInterceptor;
-import pl.lodz.p.it.zzpj2023.mok.entities.User;
+import pl.lodz.p.it.zzpj2023.interceptors.AccountFacadeExceptionsInterceptor;
+import pl.lodz.p.it.zzpj2023.interceptors.GenericFacadeExceptionsInterceptor;
+import pl.lodz.p.it.zzpj2023.mok.entities.Account;
 
 import java.util.List;
 
 @Stateless
 @TransactionAttribute(TransactionAttributeType.MANDATORY)
 @Interceptors({GenericFacadeExceptionsInterceptor.class, AccountFacadeExceptionsInterceptor.class})
-public class AccountFacade extends AbstractFacade<User> {
+public class AccountFacade extends AbstractFacade<Account> {
     @PersistenceContext(unitName = "siatka_mok")
     private EntityManager em;
 
     public AccountFacade() {
-        super(User.class);
+        super(Account.class);
     }
 
     @Override
@@ -32,8 +32,8 @@ public class AccountFacade extends AbstractFacade<User> {
     }
 
     @RolesAllowed("getUserByLogin")
-    public User findByLogin(String login) {
-        TypedQuery<User> tq = em.createNamedQuery("User.findByLogin", User.class);
+    public Account findByLogin(String login) {
+        TypedQuery<Account> tq = em.createNamedQuery("User.findByLogin", Account.class);
         tq.setParameter("login", login);
         return tq.getSingleResult();
 
@@ -42,49 +42,49 @@ public class AccountFacade extends AbstractFacade<User> {
 
     // @RolesAllowed("findByEmail")
     @PermitAll
-    public User findByEmail(String email) {
-        TypedQuery<User> tq = em.createNamedQuery("User.findByEmail", User.class);
+    public Account findByEmail(String email) {
+        TypedQuery<Account> tq = em.createNamedQuery("User.findByEmail", Account.class);
         tq.setParameter("email", email);
         return tq.getSingleResult();
     }
 
-    public User find(Object id) {
+    public Account find(Object id) {
         return super.find(id);
     }
 
     @Override
     @RolesAllowed("getAllUsers")
-    public List<User> findAll() {
+    public List<Account> findAll() {
         return super.findAll();
     }
 
     @RolesAllowed("getAllAdmins")
-    public List<User> findAllAdmins() {
-        TypedQuery<User> tq = em.createNamedQuery("Admin.findAllAccountsThatAreAdmin", User.class);
+    public List<Account> findAllAdmins() {
+        TypedQuery<Account> tq = em.createNamedQuery("Admin.findAllAccountsThatAreAdmin", Account.class);
         return tq.getResultList();
     }
 
     @RolesAllowed("getAllManagers")
-    public List<User> findAllManagers() {
-        TypedQuery<User> tq = em.createNamedQuery("Manager.findAllAccountsThatAreManager", User.class);
+    public List<Account> findAllManagers() {
+        TypedQuery<Account> tq = em.createNamedQuery("Manager.findAllAccountsThatAreManager", Account.class);
         return tq.getResultList();
     }
 
     @RolesAllowed("getAllCoaches")
-    public List<User> findAllCoaches() {
-        TypedQuery<User> tq = em.createNamedQuery("Coach.findAllAccountsThatAreCoach", User.class);
+    public List<Account> findAllCoaches() {
+        TypedQuery<Account> tq = em.createNamedQuery("Coach.findAllAccountsThatAreCoach", Account.class);
         return tq.getResultList();
     }
 
     @RolesAllowed("getAllReferees")
-    public List<User> findAllReferees() {
-        TypedQuery<User> tq = em.createNamedQuery("Referee.findAllAccountsThatAreReferee", User.class);
+    public List<Account> findAllReferees() {
+        TypedQuery<Account> tq = em.createNamedQuery("Referee.findAllAccountsThatAreReferee", Account.class);
         return tq.getResultList();
     }
 
     @RolesAllowed("getAllCaptains")
-    public List<User> findAllCaptains() {
-        TypedQuery<User> tq = em.createNamedQuery("Captain.findAllAccountsThatAreCaptain", User.class);
+    public List<Account> findAllCaptains() {
+        TypedQuery<Account> tq = em.createNamedQuery("Captain.findAllAccountsThatAreCaptain", Account.class);
         return tq.getResultList();
     }
 }
