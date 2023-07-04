@@ -1,6 +1,8 @@
 package pl.lodz.p.it.zzpj2023.mok.managers;
 
 import com.github.javafaker.Faker;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import jakarta.security.enterprise.SecurityContext;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -12,7 +14,11 @@ import pl.lodz.p.it.zzpj2023.mok.facades.AccountFacade;
 import pl.lodz.p.it.zzpj2023.mok.facades.AccountHistoryFacade;
 import pl.lodz.p.it.zzpj2023.security.EmailService;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.lang.reflect.Field;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.security.Principal;
 import java.util.*;
 
@@ -64,26 +70,63 @@ public class AccountManagerTest {
     private EditAccountLanguageDTO editAccountLanguageDTOMock;
 
     private Faker faker;
+    private final String api = "https://random-data-api.com/api/v2/users?size=1&response_type=json";
 
+    public String getDataFromApi() {
+        try {
+            URL url = new URL(api);
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("GET");
+
+            int responseCode = conn.getResponseCode();
+
+            BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+            String inputLine;
+            StringBuffer response = new StringBuffer();
+
+            while ((inputLine = in.readLine()) != null) {
+                response.append(inputLine);
+            }
+            in.close();
+            return response.toString();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
     @BeforeEach
     void setUp() throws NoSuchFieldException, IllegalAccessException {
         MockitoAnnotations.openMocks(this);
-        faker = new Faker();
     }
     public String getRandomLogin() {
-        return faker.name().username();
+        String json = getDataFromApi();
+        JsonObject jsonObject = new JsonParser().parse(json).getAsJsonObject();
+        String randomLogin = jsonObject.get("username").getAsString();
+        return randomLogin;
     }
     public String getRandomFirstName() {
-        return faker.name().firstName();
+        String json = getDataFromApi();
+        JsonObject jsonObject = new JsonParser().parse(json).getAsJsonObject();
+        String randomFirstName = jsonObject.get("first_name").getAsString();
+        return randomFirstName;
     }
     public String getRandomLastName() {
-        return faker.name().lastName();
+        String json = getDataFromApi();
+        JsonObject jsonObject = new JsonParser().parse(json).getAsJsonObject();
+        String randomLastName = jsonObject.get("last_name").getAsString();
+        return randomLastName;
     }
     public String getRandomPassword() {
-        return faker.internet().password();
+        String json = getDataFromApi();
+        JsonObject jsonObject = new JsonParser().parse(json).getAsJsonObject();
+        String randomPassword = jsonObject.get("password").getAsString();
+        return randomPassword;
     }
     public String getRandomEmail() {
-        return faker.internet().emailAddress();
+        String json = getDataFromApi();
+        JsonObject jsonObject = new JsonParser().parse(json).getAsJsonObject();
+        String randomEmail = jsonObject.get("email").getAsString();
+        return randomEmail;
     }
     @Test
     public void shouldReturnExceptionWhenAdminLoginIsTheSameLogin() {

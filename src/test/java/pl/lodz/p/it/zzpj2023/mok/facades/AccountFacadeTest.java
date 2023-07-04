@@ -10,7 +10,14 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import pl.lodz.p.it.zzpj2023.mok.entities.Account;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -34,6 +41,7 @@ class AccountFacadeTest {
 
     private Faker faker;
 
+    private final String api = "https://random-data-api.com/api/v2/users?size=1&response_type=json";
     Account u1;
     Account u2;
     Account u3;
@@ -42,13 +50,36 @@ class AccountFacadeTest {
     @BeforeEach
     void setUp() throws NoSuchFieldException, IllegalAccessException {
         MockitoAnnotations.openMocks(this);
-        faker = new Faker();
         u1 = createRandomAccount();
         u2 = createRandomAccount();
         u3 = createRandomAccount();
 
         accountList = Arrays.asList(u1, u2, u3);
     }
+
+    public String getDataFromApi() {
+        try {
+            URL url = new URL(api);
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("GET");
+
+            int responseCode = conn.getResponseCode();
+
+            BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+            String inputLine;
+            StringBuffer response = new StringBuffer();
+
+            while ((inputLine = in.readLine()) != null) {
+                response.append(inputLine);
+            }
+            in.close();
+            return response.toString();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     private Account createRandomAccount() {
         return new Account(
                 getRandomLogin(),
@@ -63,19 +94,34 @@ class AccountFacadeTest {
         );
     }
     public String getRandomLogin() {
-        return faker.name().username();
+        String json = getDataFromApi();
+        JsonObject jsonObject = new JsonParser().parse(json).getAsJsonObject();
+        String randomLogin = jsonObject.get("username").getAsString();
+        return randomLogin;
     }
     public String getRandomFirstName() {
-        return faker.name().firstName();
+        String json = getDataFromApi();
+        JsonObject jsonObject = new JsonParser().parse(json).getAsJsonObject();
+        String randomFirstName = jsonObject.get("first_name").getAsString();
+        return randomFirstName;
     }
     public String getRandomLastName() {
-        return faker.name().lastName();
+        String json = getDataFromApi();
+        JsonObject jsonObject = new JsonParser().parse(json).getAsJsonObject();
+        String randomLastName = jsonObject.get("last_name").getAsString();
+        return randomLastName;
     }
     public String getRandomPassword() {
-        return faker.internet().password();
+        String json = getDataFromApi();
+        JsonObject jsonObject = new JsonParser().parse(json).getAsJsonObject();
+        String randomPassword = jsonObject.get("password").getAsString();
+        return randomPassword;
     }
     public String getRandomEmail() {
-        return faker.internet().emailAddress();
+        String json = getDataFromApi();
+        JsonObject jsonObject = new JsonParser().parse(json).getAsJsonObject();
+        String randomEmail = jsonObject.get("email").getAsString();
+        return randomEmail;
     }
     @Test
     void findByLogin_ValidLogin_ReturnAccount() {
