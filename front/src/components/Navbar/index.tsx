@@ -6,49 +6,43 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import SportsVolleyballIcon from '@mui/icons-material/SportsVolleyball';
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import NavbarProfileBtn from './NavbarProfileBtn';
+import { EXTENDED_ROLES } from '../../features/api/types';
+import { accountRolesIncludes } from '../../utils';
+import { useAppSelector } from '../../features/hooks';
+// import adminGif from '../../imgs/fireAdmin.gif';
 import './style.scss';
-
-const pages = ['News', 'leaderboard', 'schedule'];
+import { NavLink } from 'react-router-dom';
+import { PublicRoutes } from '../../routes/AccountsRoutes';
+import NavbarLocaleChange from './NavbarLocaleChange';
+import { useTranslation } from 'react-i18next';
 
 const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
-  const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
+  const sessionState = useAppSelector((state) => state.session);
 
-  const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElUser(event.currentTarget);
   };
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
 
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
-
-  const handleUserMenuNavigate = (path: string) => {
-    handleCloseUserMenu();
-    navigate(path);
-  };
-
-  const handleLogout = () => {
-    handleCloseUserMenu();
-  };
-
   return (
-    <AppBar position="static">
+    <AppBar
+      className={
+        accountRolesIncludes(sessionState.tokenInfo.role, [EXTENDED_ROLES.ADMIN])
+          ? 'navbar-admin'
+          : ''
+      }
+      position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <SportsVolleyballIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
@@ -68,7 +62,6 @@ const Navbar = () => {
             }}>
             ALS
           </Typography>
-
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
@@ -96,9 +89,13 @@ const Navbar = () => {
               sx={{
                 display: { xs: 'block', md: 'none' }
               }}>
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+              {PublicRoutes.map((route, i) => (
+                <MenuItem key={i} onClick={handleCloseNavMenu}>
+                  <NavLink to={route.fullPath} className="text-decoration-none">
+                    <Typography textAlign="center">
+                      {route.path === '' ? t('navbar.news') : t(route.path)}
+                    </Typography>
+                  </NavLink>
                 </MenuItem>
               ))}
             </Menu>
@@ -122,50 +119,28 @@ const Navbar = () => {
             ALS
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}>
-                {page}
-              </Button>
+            {PublicRoutes.map((route, i) => (
+              <NavLink key={i} to={route.fullPath} className="text-decoration-none">
+                <Button
+                  onClick={handleCloseNavMenu}
+                  sx={{ my: 2, color: 'white', display: 'block' }}>
+                  {route.path === ''
+                    ? t('navbar.news')
+                    : route.path !== '/manage-teams/:teamId' && t(`navbar.${route.path}`)}
+                </Button>
+              </NavLink>
             ))}
           </Box>
-
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right'
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right'
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}>
-              <MenuItem onClick={() => handleUserMenuNavigate('/profile')}>
-                <Typography textAlign="center">Profil</Typography>
-              </MenuItem>
-              <MenuItem onClick={() => handleUserMenuNavigate('/manage-accounts')}>
-                <Typography textAlign="center">Zarządzaj kontami</Typography>
-              </MenuItem>
-              <MenuItem onClick={handleLogout}>
-                <Typography textAlign="center">Wyloguj się</Typography>
-              </MenuItem>
-            </Menu>
-          </Box>
+          <NavbarProfileBtn />
+          <NavbarLocaleChange />
         </Toolbar>
       </Container>
+      {accountRolesIncludes(sessionState.tokenInfo.role, [EXTENDED_ROLES.ADMIN]) && (
+        <Typography className="text-center administrator-label fw-bold py-3">
+          {t('navbar.loggedAs')}
+          {/* <img src={adminGif} /> */}
+        </Typography>
+      )}
     </AppBar>
   );
 };

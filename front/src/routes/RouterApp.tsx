@@ -1,84 +1,68 @@
-import { createBrowserRouter, Outlet } from 'react-router-dom';
+import { Outlet, Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
-import LoginPage from '../components/LoginPage';
-import RegisterPage from '../components/RegisterPage';
-import RegisterStepOne from '../components/RegisterPage/RegisterStepOne';
-import RegisterStepTwo from '../components/RegisterPage/RegisterStepTwo';
-import RegisterStepThree from '../components/RegisterPage/RegisterStepThree';
-import RegisterSuccess from '../components/RegisterPage/RegisterSuccess';
-import Navbar from '../components/Navbar';
-import ProfilePage from '../components/ProfilePage';
-import ManageAccounts from '../components/ManageAccounts';
+import { useAppSelector } from '../features/hooks';
+import { EXTENDED_ROLES } from '../features/api/types';
+import { accountRolesIncludes } from '../utils';
+import {
+  AdminRoutes,
+  ManagementRoutes,
+  PublicRoutes,
+  RefereeRoutes,
+  AuthRoutes
+} from './AccountsRoutes';
+import { RouteType } from './types';
+import { useCallback } from 'react';
+import DefaultContainer from '../components/DefaultContainer';
+import Page404 from '../components/Page404';
+import { Container } from 'react-bootstrap';
 
-const RouterApp = createBrowserRouter([
-  {
-    path: '/',
-    element: (
-      <>
-        <ToastContainer autoClose={1700} />
-        <Outlet />
-      </>
-    ),
-    children: [
-      {
-        path: '',
-        element: (
+const RouterApp = () => {
+  const currentRoles = useAppSelector((state) => state.session.tokenInfo.role);
+
+  const rolesIncludes = (roles: EXTENDED_ROLES[]): boolean => {
+    return accountRolesIncludes(currentRoles ?? [], roles);
+  };
+
+  const generateRoutes = useCallback(
+    (routes: RouteType[]) =>
+      routes?.map(({ element, path, children }, i) => {
+        if (children) {
+          return (
+            <Route key={i} path={path} element={element}>
+              {generateRoutes(children)}
+            </Route>
+          );
+        }
+
+        return <Route key={i} path={path} element={element} />;
+      }),
+    []
+  );
+
+  return (
+    <Routes>
+      <Route
+        path="/"
+        element={
           <>
-            <Navbar />
+            <ToastContainer hideProgressBar={true} autoClose={1500} />
             <Outlet />
           </>
-        ),
-        children: [
-          {
-            path: '/profile',
-            element: <ProfilePage />
-          },
-          {
-            path: '/manage-accounts',
-            element: <ManageAccounts />
-          }
-        ]
-      },
-      {
-        path: '/login',
-        element: <LoginPage />
-      },
-      {
-        path: '/register',
-        element: (
-          <RegisterPage>
-            <Outlet />
-          </RegisterPage>
-        ),
-        children: [
-          {
-            path: '',
-            element: <RegisterStepOne />
-          },
-          {
-            path: 'step-one',
-            element: <RegisterStepOne />
-          },
-          {
-            path: 'step-two',
-            element: <RegisterStepTwo />
-          },
-          {
-            path: 'step-three',
-            element: <RegisterStepThree />
-          }
-        ]
-      },
-      {
-        path: 'register-success',
-        element: <RegisterSuccess />
-      }
-    ]
-  },
-  {
-    path: '*',
-    element: <>404 not found</>
-  }
-]);
+        }>
+        <Route path="" element={<DefaultContainer />}>
+          {rolesIncludes([EXTENDED_ROLES.ADMIN]) && generateRoutes(AdminRoutes)}
+          {rolesIncludes([EXTENDED_ROLES.REFREE]) && generateRoutes(RefereeRoutes)}
+          {rolesIncludes([EXTENDED_ROLES.CAPTAIN, EXTENDED_ROLES.COACH, EXTENDED_ROLES.MANAGER]) &&
+            generateRoutes(ManagementRoutes)}
+          {generateRoutes(PublicRoutes)}
+
+          <Route path="*" element={<Page404 />} />
+        </Route>
+
+        {generateRoutes(AuthRoutes)}
+      </Route>
+    </Routes>
+  );
+};
 
 export default RouterApp;

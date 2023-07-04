@@ -12,7 +12,7 @@ const ConfirmPasswordInput = () => {
       {...register('confirmPassword')}
       size="small"
       className="register-form-input"
-      label="Potwierdź hasło"
+      label="* Potwierdź hasło"
       type="password"
       variant="outlined"
       error={!!errors.confirmPassword}

@@ -6,9 +6,10 @@
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="Hibernate" />
         <datasource-mapping>
-          <factory-entry name="siatka_admin" value="afb90774-6d05-4b23-a9bc-9d09a0957e12" />
-          <factory-entry name="siatka_mok" value="afb90774-6d05-4b23-a9bc-9d09a0957e12" />
-          <factory-entry name="siatka_mzl" value="afb90774-6d05-4b23-a9bc-9d09a0957e12" />
+          <factory-entry name="siatka_admin" value="dfab043e-9b96-420c-8224-a5ebd905b38d" />
+          <factory-entry name="siatka_auth" value="dfab043e-9b96-420c-8224-a5ebd905b38d" />
+          <factory-entry name="siatka_mok" value="dfab043e-9b96-420c-8224-a5ebd905b38d" />
+          <factory-entry name="siatka_mzl" />
         </datasource-mapping>
         <naming-strategy-map />
         <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/main/resources/META-INF/persistence.xml" />

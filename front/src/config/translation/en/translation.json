@@ -1,7 +1,54 @@
 {
+  "timetable": {
+    "title": "Schedule",
+    "round": "Round",
+    "season": "Season",
+    "startNewSeason": "Start new season",
+    "venue": "Venue",
+    "ref": "Referee",
+    "cancel": "Cancel",
+    "add": "Add"
+  },
+  "menuItems": {
+    "teams": "Teams",
+    "submit_team_representative": "Submit your team for league",
+    "submit_team_admin": "Submit teams for league",
+    "create_team": "Create team"
+  },
+  "navbar": {
+    "news": "Leaderboard",
+    "leaderboard": "Leaderboard",
+    "schedule": "Schedule",
+    "manage-teams": "Teams",
+    "loggedAs": "You are logged in as Administrator",
+    "navbarLocaleChange" : {
+      "polish": "Polish",
+      "english": "English"
+    },
+    "navbarProfileBtn": {
+      "logIn": "Log in",
+      "profile": "Profile",
+      "manageAccounts": "Manage accounts",
+      "manageRequests": "Manage requests",
+      "yourGames": "Your games",
+      "logout": "Logout"
+    }
+  },
+  "paths": {
+    "home": "Home"
+  },
   "login": {
     "title": "Sign in",
+    "noLogin": "No login provided",
+    "noPassword": "No password provided",
+    "voleyballLeagueWelcomes": "Amateur volleyball league welcomes.",
+    "joinGames": "Do you want to join the games?",
+    "noEasier": "Nothing easier, register",
+    "here": "here",
+    "resetPassword": "Reset Password",
+    "homePage": "Home Page",
     "loginBtn": "Log in",
+    "passwordInput": "* Password",
     "placeholder": {
       "login": "Login",
       "password": "Password"
@@ -15,5 +62,455 @@
       "badLogin": "Login does not exist",
       "padPassword": "Bad password"
     }
+  },
+  "profile": {
+    "title": "Your profile",
+    "account_info": {
+      "validation": {
+        "login": {
+          "required": "Login is required"
+        },
+        "name": {
+          "required": "Name is required"
+        },
+        "lastname": {
+          "required": "Last name is required"
+        },
+        "email": {
+          "required": "Email is required",
+          "email": "Email should be walid"
+        }
+      },
+      "login": "Login",
+      "name": "Name",
+      "lastname": "Last Name",
+      "email": "Email"
+    },
+    "change_password": {
+      "validation": {
+        "old_password": {
+          "required": "Old password should be provided"
+        },
+        "new_password": {
+          "required": "New password should be provided"
+        },
+        "repeat_new_password": {
+          "required": "Repeat new password"
+        }
+      },
+      "old_password": "Provide old password",
+      "new_password": "Provide new password",
+      "repeat_new_password": "Provide new password one more time"
+    },
+    "delete_account": {
+      "aggriment": "I accept, that I want to remove my account.",
+      "delete_button": "Remove account"
+    },
+    "menu": {
+      "account_info": "Account Information",
+      "change_password": "Change Password",
+      "remove_account": "Remove Account"
+    }
+  },
+  "submit_team": {
+    "succeed": "Team has been successfully submitted for a league",
+    "submit_team": "Submitting team",
+    "header": "Submit team for league",
+    "not_submitted_teams_header": "Not submitted teams",
+    "your_not_submitted_teams_header": "Your not submitted teams",
+    "no_not_submitted_teams": "There's no not submitted teams",
+    "teams_input_label": "* Select team",
+    "leagues": "Leagues",
+    "league": "League",
+    "no_leagues_available": "No leagues availables",
+    "leagues_input_label": "* Select league",
+    "submit_button_label": "Submit",
+    "details": "Details",
+    "dialog_msg": "Confirmation",
+    "confirmation": "Yes",
+    "confirmation_msg": "Are you sure you want to submit team to this league?",
+    "cancel": "No"
+  },
+  "create_team": {
+    "validation": {
+      "team_name": {
+        "required": "Team name should be provided"
+      },
+      "city": {
+        "required": "City should be provided"
+      }
+    },
+    "succeed": "Team has been created successfully",
+    "create_team": "Create team",
+    "header": "Create new team",
+    "team_name_input": "* Team name",
+    "team_city_input": "* City",
+    "submit_button_label": "Create team",
+    "already_created": "You already have a team"
+  },
+  "defaults": {
+    "edit": "Edit",
+    "submit": "Submit",
+    "search": "Search"
+  },
+  "manageTeamsPage": {
+    "manage_teams_header": "Manage teams",
+    "AllTeamsTable": {
+      "team_name": "Name",
+      "team_city": "City",
+      "team_league": "League",
+      "team_not_in_league": "Not submitted",
+      "waiting_for_approval": "Waiting for approval",
+      "submit_team": "Submit for league"
+    }
+  },
+  "teamPage": {
+    "team_header": "Team",
+    "addManagerModal": {
+      "team_representatives": "Team representatives",
+      "current_representatives": "Current managers",
+      "managers": "Managers:",
+      "manager": "Manager",
+      "captain": "Captain",
+      "coach": "Coach",
+      "add_representative": "Add representative",
+      "role": "Role",
+      "remove": "Remove",
+      "add": "Add",
+      "cancel": "Cancel",
+      "date": "Date",
+      "teamA": "Team A",
+      "teamB": "Team B",
+      "venue": "Venue",
+      "referee": "Referee",
+      "queue": "Queue",
+      "postponed": "Postponed",
+      "toast": {
+        "removed_representative": "Removed representative",
+        "added_representative": "Added Representative",
+        "postpone": "Game postponed",
+        "acceptScore": "Score accepted",
+        "declineScore": "Score declined"
+
+      },
+      "gameTableRow": {
+        "postpone_success": "Postpone success",
+        "acceptScore": "Accept Score",
+        "declineScore": "Decline Score"
+      }
+    },
+    "gamesTable": {
+      "gameTableRow": {
+        "postpone_success": "Postpone Success",
+        "acceptScore": "Accept Score",
+        "declineScore": "Decline Score"
+      },
+      "date": "Date",
+      "teamA": "Team A",
+      "teamB": "Team B",
+      "venue": "Venue",
+      "referee": "Referee",
+      "queue": "Queue",
+      "postponed": "Postponed"
+    },
+    "playerList": {
+      "team_players": "Players in team",
+      "gamesquad": "Game squad",
+      "confirm_gamesquad": "Confirm game squad",
+      "add_gamesquad_success": "Squad confirmed successfully"
+    }
+  },
+  "scoreDecision":{
+    "approved": "APPROVED",
+    "declined": "DECLINED"
+  },
+  "manageRequestsPage": {
+    "requestTable": {
+      "requestTableRow": {
+        "requestCard": {
+          "accept": "Accept",
+          "decline": "Decline",
+          "successfully_accepted": "Request accepted",
+          "successfully_declined": "Request denied"
+        }
+      }
+    },
+    "representative": "Representative",
+    "noRequests": "There are no requests",
+    "noInfo": "No information",
+    "league": "League",
+    "leagues": "Leagues",
+    "leaguesInSeason": "Leagues in season",
+    "manageRequests": "Manage Requests"
+  },
+  "schedulePage": {
+    "schedule": "Schedule",
+    "no_timetable": "There are no leagues with playing matches",
+    "timetable_generating": "Timetable generation",
+    "create_timetable": "Generate timetable",
+    "begin_time": "Begin time",
+    "venues": "Venues",
+    "leagues": "Leagues",
+    "expected_end_date": "Expected end date",
+    "on_success_msg": "Timetable was created successfuly"
+  },
+  "postponeDialog": {
+    "postponeButton": "Postpone",
+    "postponedBy": "Postponed by",
+    "confirm": "Confirm",
+    "confirmationInfo": "Are you sure you want to postpone the game?",
+    "yes": "Yes",
+    "no": "No"
+  },
+  "gamesPostponeCalendar": {
+    "newGameDate": "New game date is:",
+    "postponeDate": "Postpone date",
+    "confirm": "Confirm"
+  },
+  "yourGames": {
+    "title": "Games in which you are a judge",
+    "table": {
+      "teamA": "First Team",
+      "teamB": "Second Team",
+      "startTime": "Start Time",
+      "endTime": "End Time",
+      "makeResault": "Make resault"
+    },
+    "score": {
+      "table": {
+        "set": "Sets",
+        "result": "Resault"
+      },
+      "submit": "Submit",
+      "scoreboardPoints": "Points for team "
+    }
+  },
+  "leaderboard": {
+    "league": "League",
+    "round": "Round",
+    "all": "All",
+    "table": {
+      "points": "Points",
+      "games_won": "Games won",
+      "games_lost": "Games lost",
+      "sets_won": "Sets won",
+      "sets_lost": "Sets lost",
+      "team": "Team"
+    }
+  },
+  "activationPage": {
+    "noToken": "No token!",
+    "activateSuccess": "Account has been activated successfully"
+  },
+  "createNewPassword": {
+    "noGivenPassword": "No password provided",
+    "noRepeatedPassword": "No repeated password provided",
+    "differentPasswords": "Passwords do not match",
+    "passwordChangedSuccess": "Password successfully changed",
+    "resetPasswordInfo": "Reset Password",
+    "voleyballLeagueWelcomes": "Welcome to the Amateur Volleyball League.",
+    "confirmNewPassword": "Confirm new password",
+    "homePage": "Home Page",
+    "labelNewPassword": "* New password",
+    "labelRepeatPassword": "* Repeat new password"
+  },
+  "manageAccountsPage": {
+    "accountCard": {
+      "changeAccountDialog": {
+        "historySelection": {
+          "history": "History",
+          "at": "on",
+          "in": "in",
+          "by": "by"
+        },
+        "rolesSelection": {
+          "userRoles": "User Roles",
+          "manager": "Manager",
+          "coach": "Coach",
+          "captain": "Captain",
+          "referee": "Referee"
+        },
+        "userInfoSection": {
+          "newPasswordForm": {
+            "passwordRequired": "Password is required",
+            "passwordChar": "Password must be at least 8 characters long",
+            "samePasswords": "Passwords must match",
+            "passwordChangeSuccess": "Password changed successfully",
+            "labelNewPassword": "* New password",
+            "labelRepeatPassword": "* Repeat new password",
+            "noRepeatedPassword": "Repeated password is required",
+            "changePassword": "Change Password"
+          },
+          "personalInfoForm": {
+            "nameRequired": "First name is required",
+            "lastNameRequired": "Last name is required",
+            "dataChangedSuccess": "User data has been changed",
+            "labelName": "* First name",
+            "labelLastName": "* Last name",
+            "saveChanges": "Save Changes"
+          },
+          "userDetails": "User Details"
+        },
+        "userEdit": "Edit User",
+        "edit": "Edit"
+      },
+      "accept": "Accept",
+      "block": "Block",
+      "rolesPossesed": "Possessed Roles"
+    },
+    "accountsTable": {
+      "dialogAddUser": {
+        "giveName": "Provide a name",
+        "giveLastName": "Provide a last name",
+        "giveLogin": "Provide a login",
+        "giveMail": "Provide an email",
+        "emailError": "Invalid email format",
+        "givePassword": "Provide a password",
+        "passwordChar": "Password must be at least 8 characters long",
+        "samePasswords": "Passwords must match",
+        "userCreated": "User created",
+        "userCreationError": "Could not create user",
+        "addUserPlus": "+ Add User",
+        "addUser": "Add User",
+        "personalData": "Personal Data",
+        "labelName": "* First name",
+        "labelLastName": "* Last name",
+        "language": "* Language",
+        "polish": "Polish",
+        "english": "English",
+        "accountData": "Account Data",
+        "labelLogin": "* Login",
+        "labelEmail": "* Email",
+        "labelPassword": "* Password",
+        "labelConfirmPassword": "* Confirm Password",
+        "referee": "Referee",
+        "manager": "Manager",
+        "captain": "Captain",
+        "coach": "Coach",
+        "cancel": "Cancel",
+        "add": "Add"
+      },
+      "search": "Search",
+      "choseRole": "Choose a role:",
+      "role": "Role",
+      "name": "First Name",
+      "lastName": "Last Name",
+      "email": "Email",
+      "country": "Country",
+      "activated": "Activated",
+      "accepted": "Accepted",
+      "blocked": "Blocked",
+      "roles": "Roles"
+    },
+    "manageAccounts": "Manage Accounts"
+  },
+  "errorPage": {
+    "error": "Error 404:",
+    "info": "The requested page does not exist or you do not have permission to access it"
+  },
+  "profilePage": {
+    "changeMail": {
+      "mailRequired": "Email is required",
+      "mailFormat": "Invalid email format",
+      "mailChange": "Change Email",
+      "labelMail": "* Email",
+      "changeMail": "Change Email"
+    },
+    "changeLocale": {
+      "mailRequired": "Email is required",
+      "languageChanged": "Language changed successfully",
+      "changeLanguage": "Change Language",
+      "language": "Language",
+      "polish": "Polish",
+      "english": "English",
+      "save": "Save Language",
+      "labelLanguage": "* Language"
+    },
+    "deleteAccount": {
+      "delete": "Delete Account",
+      "accountBlocked": "Your account has been blocked. You can no longer log in to it."
+    },
+    "password": {
+      "labelPassword": "* Current password",
+      "oldPasswordRequired": "You must provide the old password",
+      "passwordChar": "Password must be at least 8 characters long",
+      "samePasswords": "Passwords must match",
+      "passwordChanged": "Password has been changed",
+      "passwordChange": "Password Change",
+      "changePassword": "Change Password"
+    },
+    "info": {
+      "infoChanged": "Profile information has been changed",
+      "mailSent": "We have sent an email to your mailbox to change the email address.",
+      "profileInfo": "Profile Information",
+      "labelName": "* First Name",
+      "labelLastName": "* Last Name",
+      "save": "Save Changes",
+      "changeMail": "Change Email",
+      "profile": "Your profile"
+    }
+  },
+  "exception": {
+    "unknown": "Unknown error",
+    "link_not_valid": "Link not valid",
+    "link_expired": "Link expired",
+    "account_not_found": "Account not found",
+    "account_Login_exists": "Login already in use",
+    "account_email_exists": "Email already in use",
+    "account_blocked": "Account blocked",
+    "account_not_active": "Account inactive",
+    "account_not_approved": "Account not approved",
+    "bad_login_or_password": "Bad login or password",
+    "role_already_assigned": "Role already assigned",
+    "too_many_failed_login_attempts": "Too many failed login attempts",
+    "delete_confirmed_account": "Delete confirmed account",
+    "account_constrain_violation": "Account constraint violation",
+    "exception_account_has_that_role": "Account has that role",
+    "exception_account_inactive": "Account inactive",
+    "exception_min_account_role": "Minimum account role",
+    "exception_account_not_approved": "Account not approved",
+    "exception_account_not_found": "Account not found",
+    "exception_account_role_not_found": "Account role not found",
+    "exception_optimistic_lock": "Optimistic lock",
+    "optimistic_lock": "Optimistic lock",
+    "exception_forbidden_access": "Forbidden access",
+    "account_already_has_a_team": "This account already has a team",
+    "exception.unknown": "Unexcpected error",
+    "account_does_not_have_any_teams": "Account does not have any teams",
+    "league_not_found": "League not found",
+    "team_is_already_in_league": "Team is already in league",
+    "team_is_not_submitted": "Team is not submitted",
+    "team_not_found": "Team not found",
+    "team_already_exists": "Team already exists",
+    "unauthorized": "Unauthorized access",
+    "token_expired": "Token expired",
+    "language_not_supported": "Language not supported",
+    "invalid_token": "Invalid token",
+    "not_found": "Not found",
+    "etag": "Etag error",
+    "min_account_role": "Minimum account role",
+    "role_not_allowed": "Role not allowed",
+    "cannot_self_blocked": "Cannot block self account",
+    "incorrect_role": "Incorrect role",
+    "already_blocked": "Account already blocked",
+    "already_unblocked": "Account already unblocked",
+    "incorrect_old_password": "Incorrect old password",
+    "team_already_has_captain": "Team already has a captain",
+    "team_already_has_coach": "Team already has a coach",
+    "team_not_play_in_game": "Team is not playing in the game",
+    "role_occupied": "Role occupied",
+    "role_empty": "Role is empty",
+    "gamesquads_set": "Gamesquads set",
+    "same_teams": "Same teams",
+    "past_postpone_date": "Past postpone date",
+    "exception_game_already_finished": "Game already finished",
+    "not_a_team_representative": "Not a team representative",
+    "exception_timetable_start_date_after_end_date": "Date of start should be before date of end",
+    "exception_timetable_not_enough_free_space": "Not enough available spaces within the designated time frame",
+    "exception_timetable_little_league": "The selected league must have more than 1 team",
+    "exception_timetable_dates_are_busy": "The selected time slot is already occupied by another schedule",
+    "exception_timetable_use_league": "You must chose at least one league",
+    "exception_timetable_use_venue": "You must chose at least one venue",
+    "player_in_game_squad": "Player is in game"
   }
 }

@@ -12,7 +12,7 @@ const PasswordInput = () => {
       {...register('password')}
       size="small"
       className="register-form-input"
-      label="Hasło"
+      label="* Hasło"
       type="password"
       variant="outlined"
       error={!!errors.password}

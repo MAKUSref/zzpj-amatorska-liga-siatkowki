@@ -4,6 +4,7 @@ import confettiSvg from '../../../imgs/confetti.svg';
 import { Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import './style.scss';
+import { Pathnames } from '../../../routes/pathnames';
 
 const RegisterSuccess = () => {
   const navigate = useNavigate();
@@ -15,12 +16,12 @@ const RegisterSuccess = () => {
         <img className="confetti-img mt-3 mb-4" src={confettiSvg} alt="..." />
         <p className="text-muted">Rejestracja przebiegła pomyślnie.</p>
         <p className="text-muted">Wysłaliśmy na twojego maila link potwierdzający.</p>
-        <p className="text-primary fw-bolder">Masz 12 godzin aby potwierdzić swoje konto!</p>
+        <p className="text-primary fw-bolder">Masz 24 godzin aby potwierdzić swoje konto!</p>
         <div className="d-flex justify-content-evenly mt-4">
-          <Button variant="contained" onClick={() => navigate('/login')}>
+          <Button variant="contained" onClick={() => navigate(Pathnames.login.fullPath)}>
             Zaloguj się
           </Button>
-          <Button variant="outlined" onClick={() => navigate('/')}>
+          <Button variant="outlined" onClick={() => navigate(Pathnames.home.fullPath)}>
             Strona główna
           </Button>
         </div>

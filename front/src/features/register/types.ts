@@ -1,3 +1,5 @@
+import { MANAGEMENT_ROLES } from '../api/types';
+
 export interface RegisterSliceState {
   registerAccountInfo?: RegisterAccountInfo;
   currentStep: number;
@@ -10,4 +12,5 @@ export interface RegisterAccountInfo {
   name?: string;
   lastname?: string;
   locale?: string;
+  role?: MANAGEMENT_ROLES;
 }

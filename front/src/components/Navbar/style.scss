@@ -1,1 +1,11 @@
 @import '../../styles/index.scss';
+
+.navbar-admin {
+  background-color: darken($primary-3, 10)!important;
+}
+
+.administrator-label {
+  color: $primary-3;
+  background-color: $primary-9;
+  font-size: 1.2rem!important;
+}

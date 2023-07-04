@@ -12,7 +12,7 @@ const EmailInput = () => {
       {...register('email')}
       size="small"
       className="register-form-input"
-      label="Email"
+      label="* Email"
       variant="outlined"
       error={!!errors.email}
       helperText={errors.email?.message}

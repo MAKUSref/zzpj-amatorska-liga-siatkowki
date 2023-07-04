@@ -1,7 +1,54 @@
 {
+  "timetable": {
+    "title": "Terminarz ",
+    "round": "Runda",
+    "season": "Sezon",
+    "startNewSeason": "Rozpocznij nowy sezon",
+    "venue": "Boisko",
+    "ref": "Sędzia",
+    "cancel": "Anuluj",
+    "add": "Dodaj"
+  },
+  "menuItems": {
+    "teams": "Drużyny",
+    "submit_team_representative": "Zgłoś swoją drużynę do ligi",
+    "submit_team_admin": "Zgłoś drużyny do ligi",
+    "create_team": "Stwórz drużynę"
+  },
+  "navbar": {
+    "news": "Tabela Wyników",
+    "leaderboard": "Tabela Wyników",
+    "schedule": "Terminarz",
+    "manage-teams": "Drużyny",
+    "loggedAs": "Jesteś zalogowany jako Administrator",
+    "navbarLocaleChange" : {
+      "polish": "Polski",
+      "english": "Angielski"
+    },
+    "navbarProfileBtn": {
+      "logIn": "Zaloguj się",
+      "profile": "Profil",
+      "manageAccounts": "Zarządzaj kontami",
+      "manageRequests": "Zarządzaj zgłoszeniami",
+      "yourGames": "Twoje gry",
+      "logout": "Wyloguj się"
+    }
+  },
+  "paths": {
+    "home": "Strona Główna"
+  },
   "login": {
     "title": "Zaloguj się",
     "loginBtn": "Zaloguj się",
+    "noLogin": "Nie podano loginu",
+    "noPassword": "Nie podano hasła",
+    "voleyballLeagueWelcomes": "Amatorska liga siatkówki wita.",
+    "joinGames": "Chcesz dołączyć do rozgrywek?",
+    "noEasier": "Nic prostszego, zarejestruj się",
+    "here": "tutaj",
+    "resetPassword": "Resetowanie hasła",
+    "homePage": "Strona główna",
+    "passwordInput": "* Hasło",
     "placeholder": {
       "login": "Login",
       "password": "Hasło"
@@ -15,5 +62,449 @@
       "badLogin": "Podany login nie istnieje",
       "padPassword": "Złe hasło"
     }
+  },
+  "profile": {
+    "title": "Twój profil",
+    "account_info": {
+      "validation": {
+        "login": {
+          "required": "Login jest wymagany"
+        },
+        "name": {
+          "required": "Imie jest wymagane"
+        },
+        "lastname": {
+          "required": "Nazwisko jest wymagane"
+        },
+        "email": {
+          "required": "Adres mailowy jest wymagany",
+          "email": "Adres mailowy musi być poprawny"
+        }
+      },
+      "login": "Login",
+      "name": "Imie",
+      "lastname": "Nazwisko",
+      "email": "Adres mailowy"
+    },
+    "change_password": {
+      "validation": {
+        "old_password": {
+          "required": "Stare hasło musi być wprowadzone"
+        },
+        "new_password": {
+          "required": "Nowe hasło musi być wprowadzone"
+        },
+        "repeat_new_password":  {
+          "required": "Powtóz nowe hasło"
+        }
+      },
+      "old_password": "Wprowadź stare hasło",
+      "new_password": "Wprowadź nowe hasło",
+      "repeat_new_password": "Wprowadź nowe hasło jeszcze raz"
+    },
+    "delete_account": {
+      "aggriment": "Podtwierdzam, ze chcę usunąć swoje konto.",
+      "delete_button": "Usuń konto"
+    },
+    "menu": {
+      "account_info": "Informacja o koncie",
+      "change_password": "Zmiana hasła",
+      "remove_account": "Usuwanie konta"
+    }
+  },
+  "submit_team": {
+    "succeed": "Pomyślnie zgłoszono drużynę do ligi",
+    "submit_team": "Zgłaszanie drużyny",
+    "header": "Zgłoś drużynę do ligi",
+    "not_submitted_teams_header": "Niezgłoszone drużyny",
+    "your_not_submitted_teams_header": "Twoje niezgłoszone drużyny",
+    "no_not_submitted_teams": "Brak niezgłoszonych drużyn",
+    "teams_input_label": "* Wybierz drużynę",
+    "leagues": "Ligi",
+    "league": "Liga",
+    "no_leagues_available": "Brak dostępnych lig",
+    "leagues_input_label": "* Wybierz ligę",
+    "submit_button_label": "Zgłoś",
+    "details": "Szczegóły",
+    "dialog_msg": "Potwierdzenie",
+    "confirmation": "Tak",
+    "confirmation_msg": "Czy na pewno chcesz zgłosić drużynę do tej ligi?",
+    "cancel": "Nie"
+  },
+  "create_team": {
+    "validation": {
+      "team_name": {
+        "required": "Nazwa drużyny jest wymagana"
+      },
+      "city": {
+        "required": "Miasto jest wymagane"
+      }
+    },
+    "succeed": "Drużyna została pomyślnie utworzona",
+    "create_team": "Tworzenie drużyny",
+    "header": "Utwórz nową drużynę",
+    "team_name_input": "* Nazwa drużyny",
+    "team_city_input": "* Miasto",
+    "submit_button_label": "Stwórz drużynę",
+    "already_created": "Posiadasz już drużynę"
+  },
+  "defaults": {
+    "edit": "Edytować",
+    "submit": "Złozyć",
+    "search": "Szukaj"
+  },
+  "manageTeamsPage": {
+    "manage_teams_header": "Zarządzaj drużynami",
+    "AllTeamsTable": {
+      "team_name": "Nazwa",
+      "team_city": "Miasto",
+      "team_league": "Liga",
+      "team_not_in_league": "Niezgłoszona",
+      "waiting_for_approval": "Czeka na zatwierdzenie",
+      "submit_team": "Zgłoś do ligi"
+    }
+  },
+  "teamPage": {
+    "team_header": "Drużyna",
+    "addManagerModal": {
+      "team_representatives": "Zarządcy drużyny",
+      "current_representatives": "Aktualni zarządcy",
+      "managers": "Menedżerowie:",
+      "manager": "Menedżer",
+      "captain": "Kapitan",
+      "coach": "Trener",
+      "referee": "Sędzia",
+      "add_representative": "Dodaj zarządcę",
+      "role": "Rola",
+      "remove": "Usuń",
+      "add": "Dodaj",
+      "cancel": "Anuluj",
+      "toast": {
+        "removed_representative": "Usunięto zarządcę",
+        "added_representative": "Dodano zarządcę",
+        "postpone": "Mecz przełożony",
+        "acceptScore": "Wynik został zaakceptowany",
+        "declineScore": "Wynik został odrzucony"
+      },
+      "gameTableRow": {
+        "postpone_success": "Pomyślnie ustawiono datę przełożenia",
+        "acceptScore": "Zatwierdź wynik",
+        "declineScore": "Odrzuć wynik"
+      },
+      "date": "Data",
+      "teamA": "Zespół A",
+      "teamB": "Zespół B",
+      "venue": "Obiekt",
+      "referee": "Sędzia",
+      "queue": "Kolejka",
+      "postponed": "Przełożony"
+    },
+    "gamesTable": {
+      "gameTableRow": {
+        "postpone_success": "Pomyślnie ustawiono datę przełożenia",
+        "acceptScore": "Zatwierdź wynik",
+        "declineScore": "Odrzuć wynik"
+      },
+      "date": "Data",
+      "teamA": "Zespół A",
+      "teamB": "Zespół B",
+      "venue": "Obiekt",
+      "referee": "Sędzia",
+      "queue": "Kolejka",
+      "postponed": "Przełożony"
+    },
+    "playerList": {
+      "team_players": "Zawodnicy w drużynie",
+      "gamesquad": "Skład meczowy",
+      "confirm_gamesquad": "Zatwierdź skład meczowy",
+      "add_gamesquad_success": "Pomyślnie zatwierdzono skład"
+
+    }
+  },
+  "scoreDecision":{
+    "approved": "ZATWIERDZONY",
+    "declined": "ODRZUCONY"
+  },
+  "manageRequestsPage": {
+    "requestTable": {
+      "requestTableRow": {
+        "requestCard": {
+          "accept": "Akceptuj",
+          "decline": "Odrzuć",
+          "successfully_accepted": "Zgłoszenie zaakceptowane",
+          "successfully_declined": "Zgłoszenie odrzucone"
+        }
+      }
+    },
+    "representative": "Przedstawiciel",
+    "noInfo": "Brak informacji",
+    "noRequests": "Brak zgłoszeń",
+    "league": "Liga",
+    "leagues": "Ligi",
+    "leaguesInSeason": "Ligi w sezonie",
+    "manageRequests": "Zarządzaj zgłoszeniami"
+  },
+  "schedulePage": {
+    "schedule": "Terminarz",
+    "no_timetable": "Aktualnie żadne ligi nie rozgrywają swoich meczy",
+    "timetable_generating": "Generacja terminarza",
+    "create_timetable": "Generuj terminarz",
+    "begin_time": "Data początkowa",
+    "venues": "Boiska",
+    "leagues": "Ligi",
+    "expected_end_date": "Przewidywana data końca rozgrywek",
+    "on_success_msg": "Terminarz został wygenerowany pomyślnie"
+  },
+  "postponeDialog": {
+    "postponeButton": "Przełóż",
+    "postponedBy": "Przełożony przez",
+    "confirm": "Potwierdzenie",
+    "confirmationInfo": "Czy na pewno chcesz przełożyć grę?",
+    "yes": "Tak",
+    "no": "Nie"
+  },
+  "gamesPostponeCalendar": {
+    "newGameDate": "Nowa data meczu to:",
+    "postponeDate": "Data przełożenia",
+    "confirm": "Potwierdź"
+  },
+  "yourGames": {
+    "title": "Gry w których jesteś sędziem",
+    "table": {
+      "teamA": "Pierwszy zespół",
+      "teamB": "Drugi zespół",
+      "startTime": "Czas rozpoczęcia gry",
+      "endTime": "Czas końca gry"
+    }
+  },
+  "leaderboard":{
+    "league": "Liga",
+    "round": "Runda",
+    "all": "Wszystkie",
+    "table":{
+      "points": "Punkty",
+      "games_won": "Wygrane gry",
+      "games_lost": "Przegrane gry",
+      "sets_won": "Wygrane sety",
+      "sets_lost": "Przegrane sety",
+      "team": "Drużyna"
+    }
+  },
+  "activationPage": {
+    "noToken": "Brak tokenu!",
+    "activateSuccess": "Konto zostało aktywowane pomyślnie"
+  },
+  "createNewPassword": {
+    "noGivenPassword": "Nie podano hasła",
+    "noRepeatedPassword": "Nie podano powtórzonego hasła",
+    "differentPasswords": "Hasła nie są takie same",
+    "passwordChangedSuccess": "Hasło zostało zmienione pomyślnie",
+    "resetPasswordInfo": "Resetuj hasło",
+    "voleyballLeagueWelcomes": "Amatorska liga siatkówki wita.",
+    "confirmNewPassword": "Zatwierdź nowe hasło",
+    "homePage": "Strona główna",
+    "labelNewPassword": "* Nowe hasło",
+    "labelRepeatPassword": "* Powtórz nowe hasło"
+  },
+  "manageAccountsPage": {
+    "accountCard": {
+      "changeAccountDialog": {
+        "historySelection": {
+          "history": "Historia",
+          "at": "",
+          "in": "w",
+          "by": "przez"
+        },
+        "rolesSelection": {
+          "userRoles": "Role użytkownika",
+          "manager": "Manager",
+          "coach": "Trener",
+          "captain": "Kapitan",
+          "referee": "Sędzia"
+        },
+        "userInfoSection": {
+          "newPasswordForm": {
+            "passwordRequired": "Hasło jest wymagane",
+            "passwordChar": "Hasło musi mieć co najmniej 8 znaków",
+            "samePasswords": "Hasła muszą być takie same",
+            "passwordChangeSuccess": "Hasło zostało zmienione pomyślnie",
+            "labelNewPassword": "* Nowe hasło",
+            "labelRepeatPassword": "* Powtórz nowe hasło",
+            "noRepeatedPassword": "Powtórzenie hasła jest wymagane",
+            "changePassword": "Zmień hasło"
+          },
+          "personalInfoForm": {
+            "nameRequired": "Imię jest wymagane",
+            "lastNameRequired": "Nazwisko jest wymagane",
+            "dataChangedSuccess": "Dane użytkownika zostały zmienione",
+            "labelName": "* Imię",
+            "labelLastName": "* Nazwisko",
+            "saveChanges": "Zapisz zmiany"
+          },
+          "userDetails": "Dane użytkownika"
+        },
+        "userEdit": "Edycja użytkownika",
+        "edit": "Edytuj"
+      },
+      "accept": "Zaakceptuj",
+      "block": "Zablokuj",
+      "rolesPossesed": "Posiadane role"
+    },
+    "accountsTable": {
+      "dialogAddUser": {
+        "giveName": "Podaj imię",
+        "giveLastName": "Podaj nazwisko",
+        "giveLogin": "Podaj login",
+        "giveMail": "Podaj email",
+        "emailError": "Niepoprawny format email",
+        "givePassword": "Podaj hasło",
+        "passwordChar": "Hasło musi zawierać co najmniej 8 znaków",
+        "samePasswords": "Hasła muszą być takie same",
+        "userCreated": "Stworzono użytkownika",
+        "userCreationError": "Nie można było stworzyć użytkownika",
+        "addUserPlus": "+ Dodaj użytkownika",
+        "addUser": "Dodaj użytkownika",
+        "personalData": "Dane personalne",
+        "labelName": "* Imię",
+        "labelLastName": "* Nazwisko",
+        "language": "* Język",
+        "polish": "Polski",
+        "english": "Angielski",
+        "accountData": "Dane o koncie",
+        "labelLogin": "* Login",
+        "labelEmail": "* Email",
+        "labelPassword": "* Hasło",
+        "labelConfirmPassword": "* Potwierdź hasło",
+        "referee": "Sędzia",
+        "manager": "Menadżer",
+        "captain": "Kapitan",
+        "coach": "Trener",
+        "cancel": "Anuluj",
+        "add": "Dodaj"
+      },
+      "search": "Szukaj",
+      "choseRole": "Wybierz rolę:",
+      "role": "Rola",
+      "name": "Imię",
+      "lastName": "Nazwisko",
+      "email": "e-mail",
+      "country": "Kraj",
+      "activated": "Aktywowany",
+      "accepted": "Zaakceptowany",
+      "blocked": "Zablokowany",
+      "roles": "Role"
+    },
+    "manageAccounts": "Zarządzaj kontami"
+  },
+  "errorPage": {
+    "error": "Błąd 404:",
+    "info": "Żądana strona nie istnieje albo nie masz do niej uprawnień" 
+  },
+  "profilePage": {
+    "changeMail": {
+      "mailRequired": "E-mail jest wymagany",
+      "mailFormat": "Niepoprawny format e-mail",
+      "mailChange": "Zmiania e-mail",
+      "labelMail": "* email",
+      "changeMail": "Zmień e-mail"
+    },
+    "changeLocale": {
+      "mailRequired": "E-mail jest wymagany",
+      "languageChanged": "Język został zmieniony pomyślnie",
+      "changeLanguage": "Zmień język",
+      "language": "Język",
+      "polish": "Polski",
+      "english": "Angielski",
+      "save": "Zapisz język",
+      "labelLanguage": "* Język"
+    },
+    "deleteAccount": {
+      "delete": "Usuń konto",
+      "accountBlocked": "Twoje konto zostało zablokowane. Od teraz nie możesz się na nie zalogować"
+    },
+    "password": {
+      "labelPassword": "* Aktualne hasło",
+      "oldPasswordRequired": "Musisz podać stare hasło",
+      "passwordChar": "Hasło musi mieć co najmniej 8 znaków",
+      "samePasswords": "Hasła muszą być takie same",
+      "passwordChanged": "Hasło zostało zmienione",
+      "passwordChange": "Zmiana hasła",
+      "changePassword": "Zmień hasło"
+    },
+    "info": {
+      "infoChanged": "Zmieniono informacje o profilu",
+      "mailSent": "Wysłaliśmy na twój skrzynke pocztową wiadomość w celu zmiany adresu e-mail.",
+      "profileInfo": "Informacje o profilu",
+      "labelName": "* Imię",
+      "labelLastName": "* Nazwisko",
+      "save": "Zapisz zmiany",
+      "changeMail": "Zmień e-mail",
+      "profile": "Twój profil"
+    }
+  },
+  "exception": {
+    "unknown": "Nieznany błąd",
+    "link_not_valid": "Link nie ważny",
+    "link_expired": "Link wygasł",
+    "account_not_found": "Nie znaleziono konta",
+    "account_Login_exists": "Podany login jest zajęty",
+    "account_email_exists": "Podany email jest zajęty",
+    "account_blocked": "Konto zablokowane",
+    "account_not_active": "Konto nieaktywne",
+    "account_not_approved": "Konto niezatwierdzone",
+    "bad_login_or_password": "Błędny login lub hasło",
+    "role_already_assigned": "Rola już została przypisana",
+    "too_many_failed_login_attempts": "Przekroczono limit prób logowania",
+    "delete_confirmed_account": "Usuwanie potwierdzonego konta",
+    "account_constrain_violation": "Naruszenie ograniczeń konta",
+    "exception_account_has_that_role": "Konto posiada tę rolę",
+    "exception_account_inactive": "Konto nieaktywne",
+    "exception_min_account_role": "Konto musi mieć przypisaną rolę",
+    "exception_account_not_approved": "Konto niezatwierdzone",
+    "exception_account_not_found": "Nie znaleziono konta",
+    "exception_account_role_not_found": "Nie znaleziono roli",
+    "exception_entity_not_found": "Nie znaleziono",
+    "exception_optimistic_lock": "Błąd blokady optymistycznej",
+    "optimistic_lock": "Błąd blokady optymistycznej",
+    "exception_forbidden_access": "Zabroniony dostęp",
+    "account_already_has_a_team": "To konto należy już do drużyny",
+    "exception.unknown": "Nieoczekiwany błąd",
+    "account_does_not_have_any_teams": "Konto nie ma żadnej drużyny",
+    "league_not_found": "Nie znaleziono ligi",
+    "team_is_already_in_league": "Drużyna jest już w lidze",
+    "team_is_not_submitted": "Drużyna nie zgłoszona",
+    "team_not_found": "Drużyna nie znaleziona",
+    "team_already_exists": "Drużyna już istnieje",
+    "transaction_rollback": "Odwołanie transakcji",
+    "unauthorized": "Nieautoryzowany dostęp",
+    "token_expired": "Token wygasł",
+    "language_not_supported": "Brak wsparcia dla podanego języka",
+    "invalid_token": "Niepoprawny token",
+    "not_found": "Nie znaleziono",
+    "etag": "Błąd etag",
+    "min_account_role": "Minimalna ilość ról",
+    "role_not_allowed": "Rola niedozwolona",
+    "cannot_self_blocked": "Nie można zablokować własnego konta",
+    "incorrect_role": "Błędna rola",
+    "already_blocked": "Konto już zablokowane",
+    "already_unblocked": "Konto już odblokowane",
+    "incorrect_old_password": "Niepoprawne stare hasło",
+    "team_already_has_captain": "Drużyna ma już kapitana",
+    "team_already_has_coach": "Drużyna ma już trenera",
+    "team_not_play_in_game": "Drużyna nie gra w meczu",
+    "role_occupied": "Rola zajęta",
+    "role_empty": "Brak roli",
+    "gamesquads_set": "Składy meczowe zostały wybrane",
+    "same_teams": "Te same drużyny",
+    "past_postpone_date": "Data z przeszłości",
+    "game_already_finished": "Mecz już się zakończył",
+    "not_a_team_representative": "Nie jesteś przedstawicielem zespołu",
+    "exception_timetable_start_date_after_end_date": "Data startu powinna być wcześniej daty skończenia",
+    "exception_timetable_not_enough_free_space": "Nie wystarczająco miejsc w zaznaczonym przedziale czasowym",
+    "exception_timetable_little_league": "Wybrana liga, musi posiadać więcej niż 1 zespół",
+    "exception_timetable_dates_are_busy": "Wybrany przedział czasowy, już jest zajęty przez inny terminarz",
+    "exception_timetable_use_league": "Musisz wybrać minimalnie jedną lige",
+    "exception_timetable_use_venue": "Musisz wybrać minimalnie jedno boisko",
+    "player_in_game_squad": "Gracz znajduje się w meczu"
   }
 }

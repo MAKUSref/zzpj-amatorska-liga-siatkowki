@@ -5,7 +5,12 @@ const LocaleSelect = () => {
   const { register } = useFormContext<{ locale: string }>();
 
   return (
-    <Select {...register('locale')} size="small" className="register-form-input" defaultValue="pl">
+    <Select
+      {...register('locale')}
+      size="small"
+      className="register-form-input"
+      defaultValue="pl"
+      label="* Język">
       <MenuItem value="pl">PL</MenuItem>
       <MenuItem value="en">EN</MenuItem>
     </Select>

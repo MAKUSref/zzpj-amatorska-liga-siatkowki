@@ -6,26 +6,25 @@ export function registerDataToRegisterRequestFull({
   locale,
   login,
   name,
-  password
+  password,
+  role
 }: RegisterRequest): RegisterRequestFull {
   return {
-    userData: {
+    accountData: {
       version: Date.now(),
       login,
-      password,
       name,
       lastname,
       email,
-      isActive: true,
-      isApproved: true,
-      isBlocked: false,
+      active: false,
+      approved: true,
+      blocked: false,
       loginTimestamp: '2023-05-11T23:18:06Z',
       locale
     },
     password,
-    managerData: {
-      version: Date.now(),
-      teamId: null
+    role: {
+      role: role?.toString()
     }
   };
 }

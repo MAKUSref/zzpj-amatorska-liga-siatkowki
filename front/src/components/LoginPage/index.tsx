@@ -1,87 +1,107 @@
 import './style.scss';
-import { useForm } from 'react-hook-form';
+import { FormProvider, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import IntroContainer from '../IntroContainer';
-import { Button, TextField } from '@mui/material';
+import { Button } from '@mui/material';
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
-import { useGetPingQuery } from '../../features/api/apiSlice';
-import { useEffect } from 'react';
+import { useLoginMutation } from '../../features/api/apiSlice';
+import * as Yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
+import LoginInput from './LoginInput';
+import PasswordInput from './PasswordLogin';
+import { useAppDispatch } from '../../features/hooks';
+import { setToken } from '../../features/session/sessionSlice';
+import { Pathnames } from '../../routes/pathnames';
+import { useMemo } from 'react';
+
+interface LoginFormSchema {
+  login: string;
+  password: string;
+}
 
 const LoginPage = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+  const [loginMutation] = useLoginMutation();
 
-  const { data: checkConnection } = useGetPingQuery();
+  const loginFormSchema = useMemo(
+    () =>
+      Yup.object().shape({
+        login: Yup.string().required(t('login.noLogin') as string),
+        password: Yup.string().required(t('login.noPassword') as string)
+      }),
+    []
+  );
 
-  const {
-    handleSubmit,
-    formState: { errors }
-  } = useForm({
+  const methods = useForm<LoginFormSchema>({
     defaultValues: {
       login: '',
       password: ''
-    }
+    },
+    resolver: yupResolver(loginFormSchema)
   });
 
-  const handleLogin = (login: string, password: string) => {
-    console.log(login, password);
-    toast.error(t('login.exception.badLogin') as string);
+  const handleLogin = ({ login, password }: LoginFormSchema) => {
+    loginMutation({ login, password })
+      .unwrap()
+      .then(() => {})
+      .catch((res) => {
+        if (res.originalStatus === 202) {
+          dispatch(setToken(res.data));
+          navigate(Pathnames.home.fullPath);
+        } else {
+          toast.error(t(res.data));
+        }
+      });
   };
-
-  const handleNavigateToRegister = () => {
-    navigate('/register');
-  };
-
-  useEffect(() => {
-    console.log(checkConnection);
-  }, [checkConnection]);
 
   return (
     <IntroContainer>
       <div className="login-form card border-0">
-        <form onSubmit={handleSubmit((data) => handleLogin(data.login, data.password))}>
-          <h3 className="mb-3">{t('login.title')}</h3>
+        <FormProvider {...methods}>
+          <form onSubmit={methods.handleSubmit(handleLogin)}>
+            <h3 className="mb-3">{t('login.title')}</h3>
 
-          <p className="mb-4 text-muted fw-semibold">Amatorska liga siatkówki wita.</p>
+            <p className="mb-4 text-muted fw-semibold">{t('login.voleyballLeagueWelcomes')}</p>
 
-          <TextField
-            size="small"
-            className="mt-1 login-form-input"
-            label={t('login.placeholder.login') as string}
-            variant="outlined"
-          />
-          <p className="text-danger fw-bold">
-            <small>{errors.login?.message}</small>
-          </p>
+            <div>
+              <LoginInput />
+            </div>
 
-          <TextField
-            size="small"
-            className="mt-1 login-form-input"
-            label={t('login.placeholder.password') as string}
-            variant="outlined"
-          />
-          <p className="text-danger fw-bold">
-            <small>{errors.password?.message}</small>
-          </p>
+            <div className="mt-3">
+              <PasswordInput />
+            </div>
 
-          <p className="my-4 text-muted fw-semibold">
-            Chcesz dołączyć do rozgrywek? <br /> Nic prostrzego, zarejestruj się{' '}
-            <span className="text-link" onClick={handleNavigateToRegister}>
-              tutaj
-            </span>
-            .
-          </p>
-          <div className="mt-3">
-            <Button variant="contained" type="submit">
-              {t('login.loginBtn')}
+            <p className="my-4 text-muted fw-semibold">
+              {t('login.joinGames')} <br /> {t('login.noEasier')}{' '}
+              <span className="text-link" onClick={() => navigate(Pathnames.register.fullPath)}>
+                {t('login.here')}
+              </span>
+            </p>
+            <div className="mt-3">
+              <Button variant="contained" type="submit">
+                {t('login.loginBtn')}
+              </Button>
+            </div>
+            <p className="my-4 text-muted fw-semibold">
+              <span
+                className="text-link"
+                onClick={() => navigate(Pathnames.resetPassword.fullPath)}>
+                {t('login.resetPassword')}
+              </span>
+            </p>
+            <Button
+              size="small"
+              className="mt-3"
+              variant="text"
+              onClick={() => navigate(Pathnames.home.fullPath)}>
+              <KeyboardBackspaceIcon /> <span className="ms-2">{t('login.homePage')}</span>
             </Button>
-          </div>
-          <Button size="small" className="mt-3" variant="text" onClick={() => navigate('/')}>
-            <KeyboardBackspaceIcon /> <span className="ms-2">Strona główna</span>
-          </Button>
-        </form>
+          </form>
+        </FormProvider>
       </div>
     </IntroContainer>
   );

@@ -1,0 +1,13 @@
+@import '../../../styles/index.scss';
+
+.profile-avatar-container {
+  
+  .profile-avatar {
+    width: 120px;
+    height: 120px;
+
+    .profile-avatar-icon {
+      font-size: 5rem;
+    }
+  }
+}

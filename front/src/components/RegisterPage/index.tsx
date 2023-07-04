@@ -1,12 +1,12 @@
 import { Button, Step, StepLabel, Stepper } from '@mui/material';
-import React from 'react';
 import { useAppSelector } from '../../features/hooks';
 import IntroContainer from '../IntroContainer';
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import './style.scss';
-import { useNavigate } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
+import { Pathnames } from '../../routes/pathnames';
 
-const RegisterPage = ({ children }: React.PropsWithChildren) => {
+const RegisterPage = () => {
   const navigate = useNavigate();
 
   const currentStep = useAppSelector((state) => state.register.currentStep);
@@ -25,9 +25,13 @@ const RegisterPage = ({ children }: React.PropsWithChildren) => {
           </Step>
         </Stepper>
         <h3 className="mb-3">Rejestracja</h3>
-        {children}
+        <Outlet />
         <div>
-          <Button size="small" className="mt-3" variant="text" onClick={() => navigate('/')}>
+          <Button
+            size="small"
+            className="mt-3"
+            variant="text"
+            onClick={() => navigate(Pathnames.home.fullPath)}>
             <KeyboardBackspaceIcon /> <span className="ms-2">Strona główna</span>
           </Button>
         </div>

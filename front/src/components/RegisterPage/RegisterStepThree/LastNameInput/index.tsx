@@ -12,7 +12,7 @@ const LastNameInput = () => {
       {...register('lastname')}
       size="small"
       className="register-form-input"
-      label="Nazwisko"
+      label="* Nazwisko"
       variant="outlined"
       error={!!errors.lastname}
       helperText={errors.lastname?.message}

@@ -5,3 +5,38 @@
 
 .cursor-pointer { cursor: pointer; }
 .text-primary { color: $primary-3!important; }
+
+.bg-danger { background-color: $danger-8; }
+.bg-success { background-color: $success-8; }
+.bg-neutral { background-color: $neutral-8; }
+.bg-neutral-light { background-color: $neutral-9; }
+
+.pane-danger {
+  color: $danger-3!important;
+  background-color: $danger-8!important;
+}
+
+.pane-success {
+  color: $success-3!important;
+  background-color: $success-8!important;
+}
+
+.pane-neutral {
+  color: $neutral-3!important;
+  background-color: $neutral-8!important;
+}
+
+.bg-profile-admin {
+  background-color: $primary-2;
+  color: $primary-9
+}
+
+.bg-profile-manager {
+  background-color: $success-8;
+  color: $success-3
+}
+
+.bg-profile-referee {
+  background-color: $neutral-3;
+  color: $primary-9
+}

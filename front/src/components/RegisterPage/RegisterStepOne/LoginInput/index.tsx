@@ -12,7 +12,7 @@ const LoginInput = () => {
       {...register('login')}
       size="small"
       className="register-form-input"
-      label="Login"
+      label="* Login"
       variant="outlined"
       error={!!errors.login}
       helperText={errors.login?.message}

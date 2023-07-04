@@ -8,6 +8,7 @@ import { Button } from '@mui/material';
 import PasswordInput from './PasswordInput';
 import ConfirmPasswordInput from './ConfirmPasswordInput';
 import { useEffect } from 'react';
+import { Pathnames } from '../../../routes/pathnames';
 
 interface StepTwoSchema {
   password: string;
@@ -37,15 +38,15 @@ const RegisterStepTwo = () => {
   });
 
   const handleNavigateToLoginPage = () => {
-    navigate('/login');
+    navigate(Pathnames.login.fullPath);
   };
 
   const handleNavigateToStepOne = () => {
-    navigate('/register/step-one');
+    navigate(Pathnames.registerStepOne.fullPath);
   };
 
   const handleNavigateToStepThree = () => {
-    navigate('/register/step-three');
+    navigate(Pathnames.registerStepThree.fullPath);
   };
 
   const handleAcceptStepTwo = ({ password }: StepTwoSchema) => {

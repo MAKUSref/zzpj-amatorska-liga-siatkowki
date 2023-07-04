@@ -1,42 +1,374 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE glassfish-web-app PUBLIC "-//GlassFish.org//DTD GlassFish Application Server 3.1 Servlet 3.0//EN" "http://glassfish.org/dtds/glassfish-web-app_3_0-1.dtd">
 <glassfish-web-app error-url="">
-    <context-root>/</context-root>
+  <context-root>/</context-root>
 
   <security-role-mapping>
-    <role-name>getUserByLogin</role-name>
+    <role-name>addRole</role-name>
+    <group-name>ADMIN</group-name>
+  </security-role-mapping>
+
+
+  <security-role-mapping>
+    <role-name>removeRole</role-name>
+    <group-name>ADMIN</group-name>
+  </security-role-mapping>
+
+
+  <security-role-mapping>
+    <role-name>createAccountAdmin</role-name>
     <group-name>ADMIN</group-name>
   </security-role-mapping>
 
   <security-role-mapping>
-    <role-name>getAllUsers</role-name>
+    <role-name>editAccountAsAdmin</role-name>
     <group-name>ADMIN</group-name>
   </security-role-mapping>
 
   <security-role-mapping>
-    <role-name>getAllAdmins</role-name>
+    <role-name>getAccounts</role-name>
+    <group-name>ADMIN</group-name>
+  </security-role-mapping>
+
+
+  <security-role-mapping>
+    <role-name>blockAccount</role-name>
+    <group-name>ADMIN</group-name>
+  </security-role-mapping>
+
+
+  <security-role-mapping>
+    <role-name>blockSelfAccount</role-name>
+    <group-name>ADMIN</group-name>
+    <group-name>MANAGER</group-name>
+    <group-name>COACH</group-name>
+    <group-name>CAPTAIN</group-name>
+    <group-name>REFEREE</group-name>
+  </security-role-mapping>
+
+  <security-role-mapping>
+    <role-name>approveAccount</role-name>
     <group-name>ADMIN</group-name>
   </security-role-mapping>
 
   <security-role-mapping>
-    <role-name>getAllManagers</role-name>
+    <role-name>unblockAccount</role-name>
     <group-name>ADMIN</group-name>
   </security-role-mapping>
 
   <security-role-mapping>
-    <role-name>getAllCoaches</role-name>
+    <role-name>disapproveAccount</role-name>
     <group-name>ADMIN</group-name>
   </security-role-mapping>
 
   <security-role-mapping>
-    <role-name>getAllReferees</role-name>
+    <role-name>getAccountHistory</role-name>
     <group-name>ADMIN</group-name>
   </security-role-mapping>
 
   <security-role-mapping>
-    <role-name>getAllCaptains</role-name>
+    <role-name>getSelfAccountHistory</role-name>
+    <group-name>ADMIN</group-name>
+    <group-name>MANAGER</group-name>
+    <group-name>COACH</group-name>
+    <group-name>CAPTAIN</group-name>
+    <group-name>REFEREE</group-name>
+  </security-role-mapping>
+
+  <security-role-mapping>
+    <role-name>changeAccountPassword</role-name>
     <group-name>ADMIN</group-name>
   </security-role-mapping>
+
+  <security-role-mapping>
+    <role-name>changeLanguage</role-name>
+    <group-name>ADMIN</group-name>
+    <group-name>MANAGER</group-name>
+    <group-name>COACH</group-name>
+    <group-name>CAPTAIN</group-name>
+    <group-name>REFEREE</group-name>
+  </security-role-mapping>
+
+  <security-role-mapping>
+    <role-name>getSelfAccountInfo</role-name>
+    <group-name>ADMIN</group-name>
+    <group-name>MANAGER</group-name>
+    <group-name>COACH</group-name>
+    <group-name>CAPTAIN</group-name>
+    <group-name>REFEREE</group-name>
+  </security-role-mapping>
+
+  <security-role-mapping>
+    <role-name>editAccount</role-name>
+    <group-name>ADMIN</group-name>
+    <group-name>MANAGER</group-name>
+    <group-name>COACH</group-name>
+    <group-name>CAPTAIN</group-name>
+    <group-name>REFEREE</group-name>
+  </security-role-mapping>
+
+
+  <security-role-mapping>
+    <role-name>changeOwnPassword</role-name>
+    <group-name>ADMIN</group-name>
+    <group-name>MANAGER</group-name>
+    <group-name>COACH</group-name>
+    <group-name>CAPTAIN</group-name>
+    <group-name>REFEREE</group-name>
+  </security-role-mapping>
+
+  <!--  GameEndpoint-->
+  <security-role-mapping>
+    <role-name>editGamesquad</role-name>
+    <group-name>ADMIN</group-name>
+    <group-name>MANAGER</group-name>
+    <group-name>COACH</group-name>
+    <group-name>CAPTAIN</group-name>
+  </security-role-mapping>
+
+  <security-role-mapping>
+    <role-name>requestPostpone</role-name>
+    <group-name>MANAGER</group-name>
+    <group-name>COACH</group-name>
+    <group-name>CAPTAIN</group-name>
+    <group-name>ADMIN</group-name>
+  </security-role-mapping>
+
+  <security-role-mapping>
+    <role-name>acceptPostponeRequest</role-name>
+    <group-name>ADMIN</group-name>
+  </security-role-mapping>
+
+  <security-role-mapping>
+    <role-name>declinePostponeRequest</role-name>
+    <group-name>ADMIN</group-name>
+    <group-name>MANAGER</group-name>
+    <group-name>COACH</group-name>
+    <group-name>CAPTAIN</group-name>
+  </security-role-mapping>
+
+  <security-role-mapping>
+    <role-name>changeGameDate</role-name>
+    <group-name>ADMIN</group-name>
+  </security-role-mapping>
+
+  <security-role-mapping>
+    <role-name>acceptScore</role-name>
+    <group-name>ADMIN</group-name>
+    <group-name>MANAGER</group-name>
+    <group-name>COACH</group-name>
+    <group-name>CAPTAIN</group-name>
+  </security-role-mapping>
+
+  <security-role-mapping>
+    <role-name>declineScore</role-name>
+    <group-name>ADMIN</group-name>
+    <group-name>MANAGER</group-name>
+    <group-name>COACH</group-name>
+    <group-name>CAPTAIN</group-name>
+  </security-role-mapping>
+
+  <security-role-mapping>
+    <role-name>getGamesByTeam</role-name>
+    <group-name>ADMIN</group-name>
+    <group-name>MANAGER</group-name>
+    <group-name>COACH</group-name>
+    <group-name>CAPTAIN</group-name>
+  </security-role-mapping>
+
+  <security-role-mapping>
+    <role-name>getGamesById</role-name>
+    <group-name>ADMIN</group-name>
+    <group-name>MANAGER</group-name>
+    <group-name>COACH</group-name>
+    <group-name>CAPTAIN</group-name>
+    <group-name>REFEREE</group-name>
+  </security-role-mapping>
+
+  <!-- LeagueEndpoint -->
+  <security-role-mapping>
+    <role-name>showPendingTeamRequests</role-name>
+    <group-name>ADMIN</group-name>
+  </security-role-mapping>
+
+  <security-role-mapping>
+    <role-name>createLeague</role-name>
+    <group-name>ADMIN</group-name>
+  </security-role-mapping>
+
+  <!--  TeamEndpoint  -->
+  <security-role-mapping>
+    <role-name>declineTeamSubmission</role-name>
+    <group-name>ADMIN</group-name>
+  </security-role-mapping>
+
+  <security-role-mapping>
+    <role-name>acceptTeamSubmission</role-name>
+    <group-name>ADMIN</group-name>
+  </security-role-mapping>
+
+  <security-role-mapping>
+    <role-name>changeTeamAssignment</role-name>
+    <group-name>ADMIN</group-name>
+    <group-name>MANAGER</group-name>
+    <group-name>COACH</group-name>
+    <group-name>CAPTAIN</group-name>
+  </security-role-mapping>
+
+  <security-role-mapping>
+    <role-name>createTeam</role-name>
+    <group-name>ADMIN</group-name>
+    <group-name>MANAGER</group-name>
+    <group-name>COACH</group-name>
+    <group-name>CAPTAIN</group-name>
+  </security-role-mapping>
+
+  <security-role-mapping>
+    <role-name>getAllTeams</role-name>
+    <group-name>ADMIN</group-name>
+  </security-role-mapping>
+
+  <security-role-mapping>
+    <role-name>getAllNotSubmittedTeams</role-name>
+    <group-name>ADMIN</group-name>
+  </security-role-mapping>
+
+  <security-role-mapping>
+    <role-name>submitTeamForLeagueAsAdmin</role-name>
+    <group-name>ADMIN</group-name>
+  </security-role-mapping>
+
+  <security-role-mapping>
+    <role-name>submitOwnTeamForLeague</role-name>
+    <group-name>MANAGER</group-name>
+    <group-name>COACH</group-name>
+    <group-name>CAPTAIN</group-name>
+  </security-role-mapping>
+
+  <security-role-mapping>
+    <role-name>addRepresentativeToTeam</role-name>
+    <group-name>ADMIN</group-name>
+    <group-name>MANAGER</group-name>
+    <group-name>COACH</group-name>
+    <group-name>CAPTAIN</group-name>
+  </security-role-mapping>
+
+  <security-role-mapping>
+    <role-name>getMyTeams</role-name>
+    <group-name>ADMIN</group-name>
+    <group-name>MANAGER</group-name>
+    <group-name>COACH</group-name>
+    <group-name>CAPTAIN</group-name>
+  </security-role-mapping>
+
+  <security-role-mapping>
+    <role-name>getTeamByName</role-name>
+    <group-name>ADMIN</group-name>
+    <group-name>MANAGER</group-name>
+    <group-name>COACH</group-name>
+    <group-name>CAPTAIN</group-name>
+  </security-role-mapping>
+
+  <security-role-mapping>
+    <role-name>getTeamById</role-name>
+    <group-name>ADMIN</group-name>
+    <group-name>MANAGER</group-name>
+    <group-name>COACH</group-name>
+    <group-name>CAPTAIN</group-name>
+    <group-name>REFEREE</group-name>
+  </security-role-mapping>
+
+  <security-role-mapping>
+    <role-name>getAllTeams</role-name>
+    <group-name>ADMIN</group-name>
+  </security-role-mapping>
+
+  <security-role-mapping>
+    <role-name>getRefereeGames</role-name>
+    <group-name>REFEREE</group-name>
+  </security-role-mapping>
+
+  <security-role-mapping>
+    <role-name>addScoreToGame</role-name>
+    <group-name>REFEREE</group-name>
+  </security-role-mapping>
+
+
+  <!-- PlayerEndpoint -->
+
+  <security-role-mapping>
+    <role-name>getPlayers</role-name>
+    <group-name>ADMIN</group-name>
+    <group-name>MANAGER</group-name>
+    <group-name>COACH</group-name>
+    <group-name>CAPTAIN</group-name>
+  </security-role-mapping>
+
+  <security-role-mapping>
+    <role-name>addPlayerToTeam</role-name>
+    <group-name>ADMIN</group-name>
+    <group-name>MANAGER</group-name>
+    <group-name>COACH</group-name>
+    <group-name>CAPTAIN</group-name>
+  </security-role-mapping>
+
+  <security-role-mapping>
+    <role-name>removePlayerFromTeam</role-name>
+    <group-name>ADMIN</group-name>
+    <group-name>MANAGER</group-name>
+    <group-name>COACH</group-name>
+    <group-name>CAPTAIN</group-name>
+  </security-role-mapping>
+
+  <!--  TimetableEndpoint  -->
+
+  <security-role-mapping>
+    <role-name>generateTimetable</role-name>
+    <group-name>ADMIN</group-name>
+  </security-role-mapping>
+
+  <security-role-mapping>
+    <role-name>getAllLeaguesByUUIDs</role-name>
+    <group-name>ADMIN</group-name>
+  </security-role-mapping>
+
+  <security-role-mapping>
+    <role-name>getAllVenueByIds</role-name>
+    <group-name>ADMIN</group-name>
+  </security-role-mapping>
+
+  <security-role-mapping>
+    <role-name>createGames</role-name>
+    <group-name>ADMIN</group-name>
+  </security-role-mapping>
+
+
+
+
+  <!--  <security-role-mapping>-->
+  <!--    <role-name>MANAGER</role-name>-->
+  <!--    <group-name>MANAGER</group-name>-->
+  <!--  </security-role-mapping>-->
+
+  <!--  <security-role-mapping>-->
+  <!--    <role-name>ADMIN</role-name>-->
+  <!--    <group-name>ADMIN</group-name>-->
+  <!--  </security-role-mapping>-->
+
+  <!--  <security-role-mapping>-->
+  <!--    <role-name>COACH</role-name>-->
+  <!--    <group-name>COACH</group-name>-->
+  <!--  </security-role-mapping>-->
+
+  <!--  <security-role-mapping>-->
+  <!--    <role-name>REFEREE</role-name>-->
+  <!--    <group-name>REFEREE</group-name>-->
+  <!--  </security-role-mapping>-->
+
+  <!--  <security-role-mapping>-->
+  <!--    <role-name>CAPTAIN</role-name>-->
+  <!--    <group-name>CAPTAIN</group-name>-->
+  <!--  </security-role-mapping>-->
 
   <class-loader delegate="true"/>
 </glassfish-web-app>

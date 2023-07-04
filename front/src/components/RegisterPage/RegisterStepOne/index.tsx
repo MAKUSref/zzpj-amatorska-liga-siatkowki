@@ -8,6 +8,7 @@ import { Button } from '@mui/material';
 import LoginInput from './LoginInput';
 import EmailInput from './EmailInput';
 import { useEffect } from 'react';
+import { Pathnames } from '../../../routes/pathnames';
 
 interface StepOneFormSchema {
   login: string;
@@ -33,11 +34,11 @@ const RegisterStepOne = () => {
   });
 
   const handleNavigateToLoginPage = () => {
-    navigate('/login');
+    navigate(Pathnames.login.fullPath);
   };
 
   const handleNavigateToStepoTwo = () => {
-    navigate('/register/step-two');
+    navigate(Pathnames.registerStepTwo.fullPath);
   };
 
   const handleAcceptStepOne = ({ login, email }: { login: string; email: string }) => {

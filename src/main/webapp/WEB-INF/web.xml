@@ -1,20 +1,220 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="4.0" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
 
-<!--    <session-config>-->
-<!--        <session-timeout>-->
-<!--            30-->
-<!--        </session-timeout>-->
-<!--    </session-config>-->
+    <!-- MOK -->
+    <security-role>
+        <role-name>addRole</role-name>
+    </security-role>
+
+    <security-role>
+        <role-name>removeRole</role-name>
+    </security-role>
+
+    <security-role>
+        <role-name>createAccountAdmin</role-name>
+    </security-role>
+
+    <security-role>
+        <role-name>editAccountAsAdmin</role-name>
+    </security-role>
+
+    <security-role>
+        <role-name>blockAccount</role-name>
+    </security-role>
+
+    <security-role>
+        <role-name>blockSelfAccount</role-name>
+    </security-role>
+
+    <security-role>
+        <role-name>approveAccount</role-name>
+    </security-role>
+
+    <security-role>
+        <role-name>unblockAccount</role-name>
+    </security-role>
+
+    <security-role>
+        <role-name>disapproveAccount</role-name>
+    </security-role>
+
+    <security-role>
+        <role-name>getAccountHistory</role-name>
+    </security-role>
+
+    <security-role>
+        <role-name>getSelfAccountHistory</role-name>
+    </security-role>
+
+    <security-role>
+        <role-name>changeAccountPassword</role-name>
+    </security-role>
+
+    <security-role>
+        <role-name>getRefereeGames</role-name>
+    </security-role>
+
+    <security-role>
+        <role-name>addScoreToGame</role-name>
+    </security-role>
+
+    <security-role>
+        <role-name>changeLanguage</role-name>
+    </security-role>
+
+    <security-role>
+        <role-name>getSelfAccountInfo</role-name>
+    </security-role>
+
+    <security-role>
+        <role-name>editAccount</role-name>
+    </security-role>
+
+    <security-role>
+        <role-name>changeOwnPassword</role-name>
+    </security-role>
+
+    <security-role>
+        <role-name>getAccounts</role-name>
+    </security-role>
+
+    <!-- MZL -->
+
+    <!--  GameEndpoint  -->
+    <security-role>
+        <role-name>editGamesquad</role-name>
+    </security-role>
+
+    <security-role>
+        <role-name>requestPostpone</role-name>
+    </security-role>
+
+    <security-role>
+        <role-name>acceptPostponeRequest</role-name>
+    </security-role>
+
+    <security-role>
+        <role-name>declinePostponeRequest</role-name>
+    </security-role>
+
+    <security-role>
+        <role-name>changeGameDate</role-name>
+    </security-role>
+
+    <security-role>
+        <role-name>acceptScore</role-name>
+    </security-role>
+
+    <security-role>
+        <role-name>declineScore</role-name>
+    </security-role>
+
+    <security-role>
+        <role-name>getGamesByTeam</role-name>
+    </security-role>
+
+    <security-role>
+        <role-name>getGamesById</role-name>
+    </security-role>
+
+    <!-- LeagueEndpoint -->
+    <security-role>
+        <role-name>showPendingTeamRequests</role-name>
+    </security-role>
+    
+    <security-role>
+        <role-name>createLeague</role-name>
+    </security-role>
+
+    <!--  TeamEndpoint  -->
+    <security-role>
+        <role-name>declineTeamSubmission</role-name>
+    </security-role>
+
+    <security-role>
+        <role-name>acceptTeamSubmission</role-name>
+    </security-role>
+
+    <security-role>
+        <role-name>changeTeamAssignment</role-name>
+    </security-role>
+
+    <security-role>
+        <role-name>submitTeamForLeagueAsAdmin</role-name>
+    </security-role>
+    
+    <security-role>
+        <role-name>getAllNotSubmittedTeams</role-name>
+    </security-role>
+
+    <security-role>
+        <role-name>submitOwnTeamForLeague</role-name>
+    </security-role>
+
+    <security-role>
+        <role-name>createTeam</role-name>
+    </security-role>
+
+    <security-role>
+        <role-name>addRepresentativeToTeam</role-name>
+    </security-role>
+    
+    <security-role>
+        <role-name>getMyTeams</role-name>
+    </security-role>
+
+    <security-role>
+        <role-name>getTeamByName</role-name>
+    </security-role>
+
+    <security-role>
+        <role-name>getTeamById</role-name>
+    </security-role>
+
+    <security-role>
+        <role-name>getAllTeams</role-name>
+    </security-role>
+
+    <!--  PlayerEndpoint  -->
+
+    <security-role>
+        <role-name>getPlayers</role-name>
+    </security-role>
+
+    <security-role>
+        <role-name>addPlayerToTeam</role-name>
+    </security-role>
+
+    <security-role>
+        <role-name>removePlayerFromTeam</role-name>
+    </security-role>
+
+    <!--  TimetableEndpoint  -->
+
+    <security-role>
+        <role-name>generateTimetable</role-name>
+    </security-role>
+
+    <security-role>
+        <role-name>getAllLeaguesByUUIDs</role-name>
+    </security-role>
+
+    <security-role>
+        <role-name>getAllVenueByIds</role-name>
+    </security-role>
+
+    <security-role>
+        <role-name>createGames</role-name>
+    </security-role>
 
     <security-constraint>
         <web-resource-collection>
             <web-resource-name>All</web-resource-name>
             <url-pattern>/</url-pattern>
         </web-resource-collection>
-        <account-data-constraint>
+        <user-data-constraint>
             <transport-guarantee>NONE</transport-guarantee>
-        </account-data-constraint>
+        </user-data-constraint>
     </security-constraint>
 
     <env-entry>
